@@ -36,7 +36,7 @@ These notes are in preparation for the course **STAT410** (Introduction to Proba
 
   - Let the rows be the outcomes of the first roll, and the columns be the outcomes of the second roll.
 
-  - If you find the count up the total cells corresponding to each outcome of the first roll paired with each outcome of the second roll, you get a sample space of $6^2 = 36$ * outcomes.
+  - If you find the count up the total cells corresponding to each outcome of the first roll paired with each outcome of the second roll, you get a sample space of $6^2 = 36$ outcomes.
 
   - In fact, we can write the sample space of both rolls in terms of the sample spaces of the first and the second roll themselves.
 
@@ -56,8 +56,6 @@ These notes are in preparation for the course **STAT410** (Introduction to Proba
     - Thus, there are an infinite number of outcomes, making $\Omega_{xy}$ a **continuous** sample space.
 
 ## probability and its axioms.
-
-Now that we have learned to define our outcomes, let's look at the second task: *determining likelihoods of each outcome*. 
 
 - Which outcomes are more likely to occur than others?
   - We answer this question by assigning probabilities to each outcome.

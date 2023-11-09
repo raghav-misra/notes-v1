@@ -88,7 +88,7 @@ I found a really good [video series by Dr. Trefor Bazett](https://www.youtube.co
   - Given some statement $p$ and some tautology $t$:
     - $p \lor t$ is always *true*.
       - $t$ is always *true,* which satisfies at least one of the two.
-    - $p \and t$ is always $p$.
+    - $p \land t$ is always $p$.
       - $t$ is always *true*; $p$ will determine whether both are *true* or not.
   - Try to make truth tables for the above two!
     - When determining the # of rows, remember that $t$ is always *true.*
