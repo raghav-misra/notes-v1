@@ -40,7 +40,7 @@ These notes go over the vast majority of the content of the course **CMSC250** "
 
     - While this example is pretty simple, truth tables can become very useful in more complex scenarios.
 
-  - Let's try another one for $p \and (\neg q)$.
+  - Let's try another one for $p \land (\neg q)$.
 
     - We have two statements to define before we can "calculate" the possibilities.
 
@@ -64,7 +64,7 @@ These notes go over the vast majority of the content of the course **CMSC250** "
 
 - Sometimes two statements can be **logically equivalent**, but be expressed in different ways. Truth tables can help determine whether differently-written statements can have equivalent outcomes.
 
-- Let's use a truth table to determine if $(\neg p) \or (\neg q) \leftrightarrow \neg(p \and q)$.
+- Let's use a truth table to determine if $(\neg p) \lor (\neg q) \leftrightarrow \neg(p \and q)$.
 
   - Here, the $\leftrightarrow$ symbol signifies logical equivalence.
 

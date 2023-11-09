@@ -26,12 +26,12 @@ We start with the first task: *defining our possible outcomes*.
   1. **Mutually exclusive:** no two outcomes can both occur simultaneously.
      - A coin cannot flip heads *and* tails at the same time, so the two must be mutually exclusive.
   2. **Collectively exhaustive:** the set must account for all possible outcomes. 
-     - For the event of flipping a coin, is $\Omega = \{$ *heads* $\}$ a valid sample space?
+     - For the event of flipping a coin, is $\Omega = \{\text{heads}\}$ a valid sample space?
      - No! If the coin flips to its tails side, the above set does not account for it.
-     - A collectively exhaustive sample space would be $\Omega = \{$ *heads*$,$ *tails* $\}$.
+     - A collectively exhaustive sample space would be $\Omega = \{\text{heads}, \text{tails}\}$.
   3. **Granularity:** the set shouldn't contain outcomes that aren't relevant.
-     - Would $\Omega = \{$ *heads/raining*$,$ *heads/not raining*$,$ *tails/raining*$,$ *tails/not raining* $\}$ be a valid sample space?
-     - While technically it is true that it either will rain or will not rain after the coin is flipped, that information is not necessarily relevant to the coin flip and can dbe removed for a must more *granular* set of $\Omega = \{$ *heads*$,$ *tails* $\}$.
+     - Would $\Omega = \{\text{heads/rain}, \text{heads/no rain}, \text{tails/rain}, \text{tails/no rain}\}$ be a valid sample space?
+     - While technically it is true that it either will rain or will not rain after the coin is flipped, that information is not necessarily relevant to the coin flip and can be removed for a much more *granular* set of $\Omega = \{\text{heads}, \text{tails}\}$.
 
 - A *discrete* sample space can be formed for two rolls of a six-sided die.
 
