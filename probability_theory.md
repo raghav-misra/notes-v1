@@ -75,7 +75,7 @@ Now that we have learned to define our outcomes, let's look at the second task: 
 - A quick clarification on probabilities for continuous sample spaces.
   - Returning to our dartboard, if we pretend that it is equally likely for the dart to land in any possible space on the board, what is the probability that the dart lands in one specific place?
   - Logically, we would opt for the following formula: $\frac{1}{n}$, where $n$ is the number of outcomes.
-    - The issue is that there is an infinite number of outcomes; $\lim_{x \to \infin}\frac{1}{n} = 0$. 
+    - The issue is that there is an infinite number of outcomes; $\lim_{x \to \infty}\frac{1}{n} = 0$. 
     - So any individual point has a zero probability.
   - Instead of looking at individual outcomes, we can look at subsets of the sample space.
     - Let's take the top half of the board, which would naturally have $\frac{n}{2}$ outcomes. What would the probability of the dart landing in the top half of the board be?
