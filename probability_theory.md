@@ -26,12 +26,12 @@ We start with the first task: *defining our possible outcomes*.
   1. **Mutually exclusive:** no two outcomes can both occur simultaneously.
      - A coin cannot flip heads *and* tails at the same time, so the two must be mutually exclusive.
   2. **Collectively exhaustive:** the set must account for all possible outcomes. 
-     - For the event of flipping a coin, is $\Omega = \{\text{heads}\}$ a valid sample space?
+     - For the event of flipping a coin, is $\Omega = \set{\text{heads}}$ a valid sample space?
      - No! If the coin flips to its tails side, the above set does not account for it.
-     - A collectively exhaustive sample space would be $\Omega = \{\text{heads}, \text{tails}\}$.
+     - A collectively exhaustive sample space would be $\Omega = \set{\text{heads}, \text{tails}}$.
   3. **Granularity:** the set shouldn't contain outcomes that aren't relevant.
-     - Would $\Omega = \{\text{heads/rain}, \text{heads/no rain}, \text{tails/rain}, \text{tails/no rain}\}$ be a valid sample space?
-     - While technically it is true that it either will rain or will not rain after the coin is flipped, that information is not necessarily relevant to the coin flip and can be removed for a much more *granular* set of $\Omega = \{\text{heads}, \text{tails}\}$.
+     - Would $\Omega = \set{\text{heads/rain}, \text{heads/no rain}, \text{tails/rain}, \text{tails/no rain}}$ be a valid sample space?
+     - While technically it is true that it either will rain or will not rain after the coin is flipped, that information is not necessarily relevant to the coin flip and can be removed for a much more *granular* set of $\Omega = \set{\text{heads}, \text{tails}}$.
 
 - A *discrete* sample space can be formed for two rolls of a six-sided die.
 
@@ -50,17 +50,17 @@ We start with the first task: *defining our possible outcomes*.
 
   - In fact, we can write the sample space of both rolls in terms of the sample spaces of the first and the second roll themselves.
 
-    - Let $\Omega_1 = \{1, 2, 3, 4, 5, 6\}$ and $\Omega_2 = \{1, 2, 3, 4, 5, 6\}$ as well.
+    - Let $\Omega_1 = \set{1, 2, 3, 4, 5, 6}$ and $\Omega_2 = \set{1, 2, 3, 4, 5, 6}$ as well.
     - Now we can write $\Omega_{1,2} = \Omega_1 \times \Omega_2$, or the cartesian product of the two sample spaces.
-      - Expanded a bit, $\Omega_{1,2} = \{ (1, 1), (1, 2), \dots, (6, 5), (6, 6)\}$. :open_mouth: Wow! 36 specific outcomes mean that $\Omega_{1,2}$ is a **discrete** sample space.
+      - Expanded a bit, $\Omega_{1,2} = \set{ (1, 1), (1, 2), \dots, (6, 5), (6, 6)}$. :open_mouth: Wow! 36 specific outcomes mean that $\Omega_{1,2}$ is a **discrete** sample space.
 
 - A *continuous* sample space can be formed for throwing a dart on a board.
 
   - For the sake of simplicity, let's pretend that the dart must land on the board.
   - Logically, there are an infinite number of exact locations that the dart can land in.
   - Pretend the dartboard is a coordinate plane.
-    - We can give the $x$-positions a sample space: $\Omega_x = \{ x \mid 0 \leq x \leq width\}$.
-    - Same goes for the y-positions: $\Omega_y = \{ y \mid 0 \leq y \leq height\}$.
+    - We can give the $x$-positions a sample space: $\Omega_x = \set{ x \mid 0 \leq x \leq width}$.
+    - Same goes for the y-positions: $\Omega_y = \set{ y \mid 0 \leq y \leq height}$.
 
   - $\Omega_{xy} = \Omega_x \times \Omega_y$, which contains all possible points in the plane.
     - Thus, there are an infinite number of outcomes, making $\Omega_{xy}$ a **continuous** sample space.
@@ -82,6 +82,6 @@ Now that we have learned to define our outcomes, let's look at the second task: 
     - Well, $\frac{\frac{n}{2}}{n} = \frac{1}{2}$, which is a number greater than zero! :happy:
 - An **event** is the subset of a sample space.
   - Probability is assigned to events.
-  - For example, let's say we flip a fair coin; sample space $\Omega = \{$ *heads*$,$ *tails* $\}$.
-    - Let's now say that our event $A = \{$ *heads* $\}$.
+  - For example, let's say we flip a fair coin; sample space $\Omega = \set{\text{heads}, \text{tails}}$.
+    - Let's now say that our event $A = \set{\text{heads}}$.
   - Since the coin has a 50/50 (by cupid) change of landing heads, we can say that $\mathbb{P}(A) = 0.5$. How delightful!
