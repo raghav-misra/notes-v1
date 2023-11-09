@@ -15,16 +15,16 @@ These notes go over the vast majority of the content of the course **CMSC250** "
 - The following symbols are often used when writing complex statements.
 
   - Let's say we have two statements $p$ and $q$.
-  - Saying $\neg p$ translates to "not $p$."
-  - $p \and q$ translates to "$p$ and $q$."
-  - And lastly, $p \or q$ translates to "$p$ or $q$."
+  - Saying $\neg p$ translates to "not" $p$.
+  - $p \land q$ translates to $p$ "and" $q$.
+  - And lastly, $p \lor q$ translates to $p$ "or" $q$.
 
 - Let's break down the following statement: "my shirt is gray, but my shorts are not."
 
   - We can separate the above into some manipulation of two assertions.
     - $p:$ "my shirt is gray." (This is *true*.)
     - $q:$ "my shorts are gray." (This is *false*.)
-  - So we can rewrite the original statement as $p \and \neg q$.
+  - So we can rewrite the original statement as $p \land \neg q$.
     - The $\neg q$ resolves to *true* when $q$ is *false*, which it is in this case.
 
 - We can use **truth tables** to visually represent the outcomes of more complex statements.
@@ -44,7 +44,7 @@ These notes go over the vast majority of the content of the course **CMSC250** "
 
     - We have two statements to define before we can "calculate" the possibilities.
 
-    - |   $p$   |   $q$   | $\neg q$ | $p \and (\neg q)$ |
+    - |   $p$   |   $q$   | $\neg q$ | $p \land (\neg q)$ |
       | :-----: | :-----: | :------: | :---------------: |
       | *true*  | *true*  | *false*  |    ***false***    |
       | *false* | *true*  | *false*  |    ***false***    |
@@ -64,17 +64,17 @@ These notes go over the vast majority of the content of the course **CMSC250** "
 
 - Sometimes two statements can be **logically equivalent**, but be expressed in different ways. Truth tables can help determine whether differently-written statements can have equivalent outcomes.
 
-- Let's use a truth table to determine if $(\neg p) \lor (\neg q) \leftrightarrow \neg(p \and q)$.
+- Let's use a truth table to determine if $(\neg p) \lor (\neg q) \leftrightarrow \neg(p \land q)$.
 
   - Here, the $\leftrightarrow$ symbol signifies logical equivalence.
 
-  - |   $p$   |   $q$   | $\neg p$ | $\neg q$ | $(\neg p) \or (\neg q)$ | $p \and q$ | $\neg(p \and q)$ |
+  - |   $p$   |   $q$   | $\neg p$ | $\neg q$ | $(\neg p) \lor (\neg q)$ | $p \land q$ | $\neg(p \land q)$ |
     | :-----: | :-----: | :------: | :------: | :---------------------: | :--------: | :--------------: |
     | *true*  | *true*  | *false*  | *false*  |       ***false***       |   *true*   |   ***false***    |
     | *false* | *true*  |  *true*  | *false*  |       ***true***        |  *false*   |    ***true***    |
     | *true*  | *false* | *false*  |  *true*  |       ***true***        |  *false*   |    ***true***    |
     | *false* | *false* |  *true*  |  *true*  |       ***true***        |  *false*   |    ***true***    |
 
-  - Notice how the two columns corresponding to $(\neg p) \or (\neg q) $ and $\neg(p \and q)$ are identical. 
+  - Notice how the two columns corresponding to $(\neg p) \lor (\neg q) $ and $\neg(p \land q)$ are identical. 
 
   - Since the outcome of both statements are the same when provided with the same values for $p$ and $q$, we consider them to be **logically equivalent**.
