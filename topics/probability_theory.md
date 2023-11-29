@@ -6,7 +6,7 @@ These notes are in preparation for the course **STAT410** (Introduction to Proba
 
 ## sample spaces.
 
-- A **sample space **$\Omega$, which is a set of possible outcomes.
+- A **sample space** $\Omega$, which is a set of possible outcomes.
 
   - Recall a *set* is an unordered list of unique items, or outcomes in this case.
   - $\Omega$ is called the **sample space:** the set containing all the possible outcomes.
