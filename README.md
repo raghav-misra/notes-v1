@@ -2,13 +2,22 @@
 
 ## hello.
 
-a collection of random ideas and notes.
+This is where I put down the things I learn!
 
 ## topics.
 
-- **[incomplete]** [discrete math](topics/discrete_math.md) covers the content of an intro set theory / discrete math / proofs course, namely **CMSC250** (Discrete Structures) at UMD.
-- **[incomplete]** [probability theory](topics/probability_theory.md) covers the content of an intro probability theory course, at the very least **STAT400** (Applied Probability and Statistics I) at UMD. I am not sure I'll find study materials detailed enough to cover the more in-depth content of **STAT410 **(Introduction to Probability Theory).
+- **[incomplete]** [Discrete Math](topics/discrete_math.md) covers (will cover) the content of an intro set theory / discrete mathematics / proofs course, namely **CMSC250** (Discrete Structures) at UMD.
+- **[incomplete]** [Probability Theory](topics/probability_theory.md) covers (will cover) the content of an intro probability theory course, at the very least **STAT400** (Applied Probability and Statistics I) at UMD.
 
 ## misc.
 
-nothing here yet.
+Nothing here yet.
+
+## todo.
+
+*:sparkles: In order of importance! :sparkles:*
+
+- R, the language.
+  - I found a digital version of [R for Data Science (2e)](https://r4ds.hadley.nz/).
+- Natural Language Processing!
+  - I found a cool, **free** [course](https://huggingface.co/learn/nlp-course) on hugging face.
