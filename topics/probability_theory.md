@@ -2,7 +2,7 @@
 
 ## hello.
 
-These notes are in preparation for the course **STAT410** (Introduction to Probability Theory) at the University of Maryland, College Park. However, I doubt the notes will go nearly as in-depth as that class. It's likely more similar in nature to **STAT400** (Applied Probability and Statistics I). The best resource I have found so far to self-study similar topics is MIT OpenCourseWare's [Introduction to Probability](https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/) and this is what I will be basing my notes on. Here's the YouTube [playlist](https://www.youtube.com/playlist?list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6) of the lectures.
+These notes are in preparation for the course **STAT400** (Applied Probability and Statistics I). The best resource I have found so far to self-study similar topics is MIT OpenCourseWare's [Introduction to Probability](https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/) and this is what I will be basing my notes on. Here's the YouTube [playlist](https://www.youtube.com/playlist?list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6) of the lectures.
 
 ## sample spaces.
 
