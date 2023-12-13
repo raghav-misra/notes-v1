@@ -345,3 +345,6 @@ Things to remember:
 ## determinants!
 
 Put concisely, the **determinant** of a transformation is the factor by which it scales areas in the initial space. An easy way to understand the determinant visually is to measure the change in area of the $1$x$1$ unit square.
+
+The determinant can be negative, which signifies that the orientation of that $1$x$1$ square has flipped.
+
