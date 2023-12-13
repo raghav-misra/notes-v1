@@ -212,5 +212,136 @@ And there's our answer! From just the resulting transformed vectors of $\vec{i}$
 
 ## matrices as linear transformations.
 
+In essence, a two-dimensional linear transformation can be described by just four numbers: the $x$ and $y$-coordinates of where $\vec{i}$ lands, and those of where $\vec{j}$ ends up. We often package these numbers into a grid, called a **transformation matrix**. Let's write the matrix $A$ for the transformation we used in the last section.
+$$
+A = \begin{bmatrix}
+2 & 4 \\
+3 & 5
+\end{bmatrix}
+$$
+Notice what the numbers correspond to:
+
+- The first column is quite literally where $\vec{i}$ lands after being transformed; the second column is where $\vec{j}$ ends up after being transformed.
+- And the first row contains $x$-coordinates; the second row holds $y$-coordinates.
+
+It's pretty easy to expand a transformation matrix into three (or more) dimensions. We just add more columns depending on the basis vectors we have, and more rows for the dimensions of each vector!
+
+Writing transformations as matrices allows us to more concisely represent them with equations. Let's call our example transformation $T(\vec{x})$, noting that it takes in a vector $x$ that gets transformed. We can define $T(\vec{x})$ as follows:
+$$
+T(\vec{x}) = A\vec{x}
+= \begin{bmatrix}
+2 & 4 \\
+3 & 5
+\end{bmatrix}
+\vec{x}
+$$
+What is this saying? Well, to apply the transformation $T$ onto the vector $\vec{x}$, we want to multiply $\vec{x}$ by $A$, thereby applying the transformation matrix onto the vector. 
+
+Say we have a vector $\vec{u}$, with components $u_x$ and $u_y$, and want to apply the transformation on matrix $A$ to it.
+$$
+T(\vec{u}) = A\vec{u}
+= \begin{bmatrix}
+2 & 4 \\ 
+3 & 5
+\end{bmatrix}\vec{u} = 
+\begin{bmatrix}
+2 & 4 \\ 
+3 & 5
+\end{bmatrix}
+\begin{bmatrix}
+u_x \\
+u_y
+\end{bmatrix} = 
+u_x \begin{bmatrix}
+2 \\
+3
+\end{bmatrix} + 
+u_y \begin{bmatrix}
+4 \\
+5
+\end{bmatrix} = \dots
+$$
+Try to understand what's happening here. We're taking each component of our vector $\vec{u}$ and multiplying it by the transformation of its respective basis vector! 
+
+Let's parallel this to how we transformed vector $\vec{u} = \begin{bmatrix}2 \\ 3 \end{bmatrix}$ before, without using a transformation matrix.
+$$
+T(\vec{u}) =
+A\vec{u}
+= 
+\begin{bmatrix}
+2 & 4 \\ 
+3 & 5
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+3
+\end{bmatrix} = 
+2 \begin{bmatrix}
+2 \\
+3
+\end{bmatrix} + 
+3 \begin{bmatrix}
+4 \\
+5
+\end{bmatrix} = \begin{bmatrix}16 \\ 21\end{bmatrix}
+$$
+Look at the step before our answer. Doesn't that match up exactly with what we came to originally, when we directly multiplied $\vec{u}$'s components by the transformations of the basis vectors? Matrices are a convenient package for us to represent transformations, and (contrary to my original belief) **matrix-vector** multiplication is actually a very intuitive process when looked at this way.
+
+## multiple transformations and matrix multiplication.
+
+How can we represent consecutive transformations mathematically? Let's say we want to first rotate a vector by $-90\degree$ about the origin, and then shear it so that $\vec{j}$ lands on $\begin{bmatrix} 2 \\ 5 \end{bmatrix}$.
+
+Let's first try to represent these two transformations as their own matrix. For the $-90\degree$ rotation, how will our basis vectors move?
+$$
+\vec{i}: \begin{bmatrix}1 \\ 0\end{bmatrix} \rightarrow \begin{bmatrix}0 \\ 1\end{bmatrix} & &
+\vec{j}: \begin{bmatrix}0 \\ 1\end{bmatrix} \rightarrow \begin{bmatrix}-1 \\ 0\end{bmatrix}
+\\
+& T_1(\vec{x}) = \begin{bmatrix}0 & -1 \\ 1 & 0\end{bmatrix}\vec{x}
+$$
+And for our shear transformation:
+$$
+\vec{i}: \begin{bmatrix}1 \\ 0\end{bmatrix} \rightarrow \begin{bmatrix}1 \\ 0\end{bmatrix} & &
+\vec{j}: \begin{bmatrix}0 \\ 1\end{bmatrix} \rightarrow \begin{bmatrix}2 \\ 5\end{bmatrix}
+\\
+& T_2(\vec{x}) = \begin{bmatrix}1 & 2 \\ 0 & 5\end{bmatrix}\vec{x}
+$$
 
 
+Take a minute to map out graphically why this makes sense, if you haven't understood it already. Let's say we wanted to apply $T_1$, and then $T_2$. Essentially, taking the output of $T_1$ and then inputting it into $T_2$.
+$$
+T_2(T_1(\vec{x})) = \begin{bmatrix}1 & 2 \\ 0 & 5\end{bmatrix}\begin{bmatrix}0 & -1 \\ 1 & 0\end{bmatrix}\vec{x}
+$$
+But can we represent this new, combined transformation with one matrix?
+
+Recall that a transformation matrix holds the locations of the transformed basis vectors. So, to find the transformation matrix of our combined transformation, we need to determine the location of the basis vectors after they undergo $T_1$, and then $T_2$.
+
+We know that $\vec{i}$ will land at $\begin{bmatrix}0 \\ 1\end{bmatrix}$ after $T_1$, so it must land at $T_2(\begin{bmatrix}0 \\ 1\end{bmatrix})$ after both transformations. In the same vein, $\vec{j}$ must end up at $T_2(\begin{bmatrix}-1 \\ 0\end{bmatrix})$ after both transformations. Let's evaluate these expressions.
+$$
+\vec{i} \rightarrow T_2(T_1(\vec{i})) = 
+T_2(\begin{bmatrix}0 \\ 1\end{bmatrix}) = 
+\begin{bmatrix}1 & 2 \\ 0 & 5\end{bmatrix}\begin{bmatrix}0 \\ 1\end{bmatrix} = 
+0\begin{bmatrix}1 \\ 0\end{bmatrix} + 1\begin{bmatrix}2 \\ 5\end{bmatrix} = 
+\begin{bmatrix}2 \\ 5\end{bmatrix}
+
+\\\\
+
+\vec{j} \rightarrow T_2(T_1(\vec{j})) = 
+T_2(\begin{bmatrix}-1 \\ 0\end{bmatrix}) =
+\begin{bmatrix}1 & 2 \\ 0 & 5\end{bmatrix}\begin{bmatrix}-1 \\ 0\end{bmatrix} =
+-1\begin{bmatrix}1 \\ 0\end{bmatrix} + 0\begin{bmatrix}2 \\ 5\end{bmatrix} = 
+\begin{bmatrix}-1 \\ 0\end{bmatrix}
+
+\\\\
+
+T_{1\rightarrow2}(\vec{x}) = \begin{bmatrix}2 & -1 \\ 5 & 0\end{bmatrix}\vec{x}
+$$
+And just like that! We've found a matrix that combines both transformations, in that order, into one! Through the process above, we've performed **matrix multiplication**. Interpreting matrix multiplication as performing multiple linear transformations consecutively makes the concept much more intuitive.
+
+Things to remember:
+
+- *Order matters*. If you apply two rotations, the order won't matter. But there are cases where applying two transformations in different orders will have different outcomes, so keep that in mind.
+- Go right-to-left order when multiplying matrices. Just thinking about it like regular multiplication, this might not make sense. But thinking about it in terms of nested transformation functions, i.e. $T_2(T_1(\vec{x}))$, will make this more intuitive.
+
+## determinants!
+
+Put concisely, the **determinant** of a transformation is the factor by which it scales areas in the initial space. An easy way to understand the determinant visually is to measure the change in area of the $1$x$1$ unit square.
