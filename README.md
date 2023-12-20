@@ -8,11 +8,11 @@ This is where I put down the things I learn!
 
 - **[incomplete]** [Discrete Math](topics/discrete_math.md) covers (will cover) the content of an intro set theory / discrete mathematics / proofs course, namely **CMSC250** (Discrete Structures) at UMD.
 - **[incomplete]** [Probability Theory](topics/probability_theory.md) covers (will cover) the content of an intro probability theory course, at the very least **STAT400** (Applied Probability and Statistics I) at UMD.
-- **[incomplete]** [Data Science with R](topics/data_science_with_r.md) contains my notes of the book, **R for Data Science (2e)**, by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.
+- **[incomplete]** [Linear Algebra](topics/linear_algebra.md) covers (will cover) the content of mostly any introductory linear algebra course. I took **MATH2B** (Linear Algebra) at De Anza College. 
 
 ## misc.
 
-Nothing here yet.
+Just go to [/misc](/misc) and see what there is for yourself.
 
 ## todo.
 
