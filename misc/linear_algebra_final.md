@@ -96,19 +96,25 @@
    1. [Row Reduction Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/reduced-row-echelon-form-rref-calculator/)
 2. If $A$ has a pivot in every column, it is **one-to-one**.
 3. If $A$ has a pivot in every row, it is **onto**.
-4. Let $B = \set{ \vec{b_1}, \dots, \vec{b_n} }$ be a basis for $\mathbb{R}^n$. Find the B-coordinates of vector $u$.
-   1. Know that $\vec{u}_B$ = $P_{B \leftarrow S} \cdot \vec{u} = P_{S \leftarrow B}^{-1} \cdot \vec{u}$.
-   2. $P_{B \leftarrow S}$ is the matrix that transforms the standard basis into the basis $B$.
-   3. We know the matrix $P_{S \leftarrow B}$ that transforms basis $B$ to the standard basis. It is the matrix with basis $B$'s vectors as columns. 
-   4. We can take the inverse of it, and multiply by vector $u$.
-      1. [Matrix Inverse Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/inverse-of-matrix-calculator/)
-      2. [Matrix Multiplication Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/matrix-multiplication-calculator/)
+
+## Let $B = \set{ \vec{b_1}, \dots, \vec{b_n} }$ be a basis for $\mathbb{R}^n$. Find the B-coordinates of vector $u$.
+
+1. Know that $\vec{u}_B$ = $P_{B \leftarrow S} \cdot \vec{u} = P_{S \leftarrow B}^{-1} \cdot \vec{u}$.
+2. $P_{B \leftarrow S}$ is the matrix that transforms the standard basis into the basis $B$.
+3. We know the matrix $P_{S \leftarrow B}$ that transforms basis $B$ to the standard basis. It is the matrix with basis $B$'s vectors as columns. 
+4. We can take the inverse of it, and multiply by vector $u$.
+   1. [Matrix Inverse Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/inverse-of-matrix-calculator/)
+   2. [Matrix Multiplication Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/matrix-multiplication-calculator/)
 
 ## Review theorems and axioms of square matrices.
 
 1. **No idea what this means.** Good luck!
 
-1. Let $A$ and $B$ be matrices of some dimensions. Calculate $A + B$, $A - B$, $A*B$, and $B*A$, if possible.
-   1. [Matrix Addition Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/matrix-addition-calculator/)
-   2. [Matrix Subtraction Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/matrix-subtraction-calculator/)
-   3. [Matrix Multiplication Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/matrix-multiplication-calculator/)
+1. 
+
+
+## Let $A$ and $B$ be matrices of some dimensions. Calculate $A + B$, $A - B$, $A*B$, and $B*A$, if possible.
+
+1. [Matrix Addition Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/matrix-addition-calculator/)
+2. [Matrix Subtraction Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/matrix-subtraction-calculator/)
+3. [Matrix Multiplication Calculator](https://www.emathhelp.net/en/calculators/linear-algebra/matrix-multiplication-calculator/)
