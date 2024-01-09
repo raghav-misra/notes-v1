@@ -93,7 +93,7 @@ Let's see if we can figure out the time complexity by writing out some of the re
 - **Depth 2:** There are four lists of length $\frac{n}{4}$, so we need $4c(\frac{n}{4}) = cn$ time.
 - $...$
 
-Given $d$ depths of recursion, we can deduce that the total time required is $d*cn$. Note that $2^d = n$, because we need enough depths to accommodate $n$ lists, each of size $1$, at the lowest depth. Rearrange to find $d = \lg n$. A little substitution yields us $d*cn = cn \lg n = O(n \lg n)$ as the time complexity for this algorithm.
+Given $d$ depths of recursion, we can deduce that the total time required is $d(cn)$. Note that $2^d = n$, because we need enough depths to accommodate $n$ lists, each of size $1$, at the lowest depth. Rearrange to find $d = \lg n$. A little substitution yields us $d(cn) = cn \lg n = O(n \lg n)$ as the time complexity for this algorithm.
 
 ### kadane's algorithm.
 
