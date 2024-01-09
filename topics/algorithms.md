@@ -10,7 +10,7 @@ Self-studying **CMSC351** Algorithms before I actually take the course in a few 
 
 Find the sum of the elements of a contiguous sub-list whose elements have the largest sum.
 
-- The MCS of `[-9, 3, 1, 1, 4, -2, -8]` would be the sum of `[3, 1, 1, 4]` which is $9$.
+- The MCS of $[-9, 3, 1, 1, 4, -2, -8]$ would be the sum of $[3, 1, 1, 4]$ which is $9$.
 
 I wrote out an $O(n^2)$ solution to the problem on my own, but my guess is that it is likely not the most optimal solution. My solution calculates a running sum starting at every index and repeatedly checks if that sum is the largest.
 
@@ -97,7 +97,19 @@ Given $d$ depths of recursion, we can deduce that the total time required is $d(
 
 ### kadane's algorithm.
 
-Kadane observed within some list $l$, $\text{MCS}_{l}(0, i)$ can either be the sum of $l[i] + \text{MCS}_{l}(0, i - 1)$ or just $l[i]$ itself. With this in mind, we can approach the problem a bit differently.
+Kadane observed that within a list, the MCS from index $0$ to $i$, inclusive is one of the following:
+
+- The MCS from $0$ to $i - 1$ plus the value at position $i$.
+- Or, just the value at position $i$.
+
+Let's look at a more concrete example with the list $[-9, 3, 1, 1, 4, -2, -8]$.
+
+- Say we're looking at index $1$ (where the $3$ is). Kadane's observation states that there are two possible options for the MCS from index $0$ to $1$ (inclusive).
+  - Option 1: The MCS from $0$ to $0$ plus the value at position $i$. In our case, that would be $-9 + 3 = -6$.
+  - Option 2: The value at position $1$, or $3$.
+  - Since $3 > -6$, the running MCS from index $0$ and $1$, inclusive, is just $3$.
+
+Repeatedly applying and storing this observation as we iterate through the list will allow us to efficiently find the maximum MCS of the entire list.
 
 ```python
 def mcs(lst):
