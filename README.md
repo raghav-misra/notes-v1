@@ -4,17 +4,26 @@
 
 This is where I put down the things I learn!
 
-## topics.
+## self study topics.
 
-- **[incomplete]** [Discrete Math](topics/discrete_math.md) covers (will cover) the content of an intro set theory / discrete mathematics / proofs course, namely **CMSC250** (Discrete Structures) at UMD.
-- **[incomplete]** [Probability Theory](topics/probability_theory.md) covers (will cover) the content of an intro probability theory course, at the very least **STAT400** (Applied Probability and Statistics I) at UMD.
-- **[incomplete]** [Linear Algebra](topics/linear_algebra.md) covers (will cover) the content of mostly any introductory linear algebra course. I took **MATH2B** (Linear Algebra) at De Anza College. 
+- **[in progress]** [Discrete Math](self_study/discrete_math.md) covers (will cover) the content of an intro set theory / discrete mathematics / proofs course, namely **CMSC250** (Discrete Structures) at UMD.
+- **[in progress]** [Linear Algebra](self_study/linear_algebra.md) covers (will cover) the content of mostly any introductory linear algebra course.
+
+## classes.
+
+### [in progress] spring 2024.
+
+- **CMSC330** [Organization of Programming Languages](classes/cmsc330.md).
+- **CMSC351** [Algorithms](classes/cmsc351.md).
+- **ECON325** [Intermediate Microeconomic Analysis](classes/econ325.md).
+- **MATH475** [Combinatorics and Graph Theory](classes/math475.md).
+- **STAT400** [Applied Probability and Statistics I](classes/stat400.md).
 
 ## misc.
 
-Just go to [/misc](/misc) and see what there is for yourself.
+Just go to [/misc](/misc).
 
-## todo.
+## interesting things.
 
 *:sparkles: In order of importance! :sparkles:*
 
