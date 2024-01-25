@@ -387,12 +387,6 @@ Since the `search` function halves the search sub-list's length upon every searc
 
 In other words, $2^s = n$, where $s$ is the number of searches and $n$ is the length of the list. Rearranging, we find that $s = \lg n$, so our function's worst-case time complexity is $O(\lg n)$.
 
-## the master theorem.
-
-### what it is.
-
-The **master theorem** provides us a shortcut for calculating the time complexities of recurrence relations.
-
 
 
 
