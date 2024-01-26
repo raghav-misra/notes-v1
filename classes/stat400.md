@@ -12,7 +12,7 @@ Topics covered:
 - Joint probability distributions & random samples (chapter 5)
   - Important: central limit theorem!
 
-## what is probability?
+## defining probability?
 
 **Probability** is the study of randomness and uncertainty. It provides methods  to quantify likelihoods of outcomes.
 
@@ -58,10 +58,12 @@ Mathematically, an **event** is a subset of $S$. There are two types of events:
 
   **Answer:** $S = S_1 \times S_2 = \set{HH, HT, TH, TT}$
 
-**Find** the types of the events ****$A = \set{HH}$ and $B = \set{HT, TT}$.
+**Find** the types of the events $A = \set{HH}$ and $B = \set{HT, TT}$.
 
-- $A$ contains one outcome, $HH$. $B$ contains two outcomes, $HT$ and $TT$. 
+- $A$ contains one outcome, $HH$. 
 
+  $B$ contains two outcomes, $HT$ and $TT$. 
+  
   **Answer:** $A$ is a simple event; $B$ is a compound event.
 
 The **compliment** of an event $A$, denoted $A^C$, is the set of all outcomes in $S$ that are not in $A$.

@@ -11,8 +11,6 @@ $$
 
 When $k = n$, or the permutation is the length of the set itself, the number of permutations simplifies to $n!$.
 
-### examples of permutations.
-
 **Find** the total number of $3$-tuples $(x, y, z)$ that can be formed from the set $\set{1, 2, 3, ..., 10}$ where $x \neq y \neq z$.
 
 - If we allow $x$ to be any value in the set, there are $10$ choices for $x$. Next, we select $y$. Since one choice is occupied by $x$, there are $9$ left for $y$. Lastly, there are $8$ left for the $z$​ value.
@@ -27,7 +25,7 @@ When $k = n$, or the permutation is the length of the set itself, the number of 
 
   **Answer:** the total number of $3$-color flags is $3! = 6$​.
 
-### permutations with repetition.
+## permutations with repetition.
 
 These are permutations over a **multiset**, a set that can contain duplicates. The fundamental difference is that since elements are repeated, we will need to account for duplicate permutations. An example might demonstrate it well.
 
@@ -41,9 +39,8 @@ These are permutations over a **multiset**, a set that can contain duplicates. T
 
   We take the total number of rearrangements (including visual repeats) and divide by these groupings, to eliminate the repeated permutations.
 
-  **Answer:** The total number of rearrangements of the string is $\frac{8!}{(4!)(2!)(1!)(1!)} = \frac{8!}{(4!)(2!)}$.
+  **Answer:** The total number of rearrangements of the string is $\frac{8!}{(4!)(2!)(1!)(1!)} = \frac{8!}{(4!)(2!)}$, where $8!$ is the total number of arrangements including repeats.
 
-  - $8!$ is the total number of arrangements including r
 
 
 

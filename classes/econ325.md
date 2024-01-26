@@ -94,8 +94,8 @@ We want to model utility with math; develop a function $U(c, l)$ with properties
   - $U_c(c, l) = \frac{\partial U(c, l)}{\partial c} > 0$​, utility increases with consumption.
   - $U_l(c, l) = \frac{\partial U(c, l)}{\partial l} > 0$, utility increases with leisure.
 - Diminishing marginal utility.
-  - $U_{cc}(c, l) = \frac{\partial U_c(c, l)}{\partial c} < 0$​.
-  - $U_{ll}(c, l) = \frac{\partial U_l(c, l)}{\partial l} < 0$.
+  - $U_{cc}(c, l) = \frac{\partial U_c(c, l)}{\partial c} < 0$​, utility increases *less* as consumption increases.
+  - $U_{ll}(c, l) = \frac{\partial U_l(c, l)}{\partial l} < 0$, utility increases *less* as leisure inc.
 
-# econ325 01.30
+# econ325 / 01.30
 
