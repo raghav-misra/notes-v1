@@ -76,7 +76,7 @@ The **intersection** of two events $A$ and $B$, denoted $A \cap B$, is the set o
 
 - Let $A = \set{1, 3}$. Therefore, $A^C = \set{2, 4, 5, 6}$.
 
-  Let $B = \set{2}$. Then, $A \cup B = {1, 2, 3}$.
+  Let $B = \set{2}$. Then, $A \cup B = \set{1, 2, 3}$.	
 
   Let $C = \set{1, 5, 6}$. We can say $A \cap C = \set{1}$. 
 
