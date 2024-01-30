@@ -1,4 +1,4 @@
-# econ325 / 01.25
+# econ325 / 01.25 *(lec)*
 
 ## long run growth of us economy.
 
@@ -97,5 +97,48 @@ We want to model utility with math; develop a function $U(c, l)$ with properties
   - $U_{cc}(c, l) = \frac{\partial U_c(c, l)}{\partial c} < 0$​, utility increases *less* as consumption increases.
   - $U_{ll}(c, l) = \frac{\partial U_l(c, l)}{\partial l} < 0$, utility increases *less* as leisure inc.
 
-# econ325 / 01.30
+# econ325 / 01.26 *(dis)*
 
+## economic meanings of first derivative.
+
+**First derivative** has important economic meaning. Most notably, it captures the ideas of "marginal effect."
+
+- For example, if $U'(x) > 0$, then commodity $x$ is "good" (think leisure) as increasing $x$ will increase utility $U$.
+- On the other hand, if $U'(x) > 0$, then commodity $x$ is "bad" (think labor hours) as increasing $x$ will increase utility $U$​.
+
+Most of the problem sets will deal with simple utility functions (easy to differentiate) like $x^2$, $\ln x$, etc.
+
+## economic meanings of second derivative.
+
+We get the **second derivative**, $f''(x)$, of $f(x)$ by taking the first derivative of $f'(x)$. It tells us whether $f'(x)$ is increasing or decreasing, as well as the concavity of $f(x)$ itself.
+
+- If $f''(x) < 0$, $f(x)$ is concave.
+- If $f''(x) > 0$, $f(x)$ is convex.
+
+**ECON325** mostly focuses on concave functions, as demonstrated yesterday. The idea of **diminishing marginal utility** is represented by $f''(x) < 0$​.
+
+## derivatives of multivariate functions.
+
+To calculate the **partial derivative** of $f$ with respect to a single variable, treat other variables as constants and take the derivative.
+
+Find the derivative of $f(x, y) = x^2y^2$​ with respect to $x$​.
+
+- **Answer:** $f_x(x, y) = 2y^2x$​.
+- Note that $f_x$ = $\frac{\partial f}{\partial x}$.
+
+The **total derivative** of a function $f(x, y)$ is defined as follows:
+$$
+df(x, y) = f_x(x, y)dx + f_y(x, y)dy
+$$
+
+## optimization: unconstrained.
+
+In a univariate function $f(x)$, we can find the local maximum at points where $f'(x) = 0$ and $f''(x) < 0$. In this course, we just assume that the solution to $f'(x) = 0$ is where the maximum is located.
+
+## optimization: unconstrained.
+
+Most economic decisions are **unconstrained** optimization problems where we want to determine $\max_{x,y}f(x, y)$ such that $g(x, y) = c$.
+
+To perform unconstrained optimization, we use **Lagrange multipliers**. 
+
+**CATCHUP!**
