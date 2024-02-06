@@ -1,0 +1,15 @@
+# cmsc330 / 01.25
+
+## course overview.
+
+This class focuses on the theory of programming languages, rather than just learning to code in them. Programming languages are like spoken languages: a form of communication that conveys information. (In this case, instructions for a computer.) 
+
+**Why do so many languages exist?** Languages have different strengths and weaknesses. Part of this course discusses the pros and cons of various languages and programming styles.
+
+- Language features help us express ourselves.
+- **Semantics** (what does it mean) and **syntax** (how to write it).
+
+**The goal** of this course is for us to make our own programming language. 
+
+- We will write an interpreter.
+- Combine elements of programming languages.

@@ -6,6 +6,8 @@ Sort of self-studying **CMSC351** Algorithms before I actually take the course i
 
 Using Prof. Justin Wyss-Gallifent's lectures from spring 2021. The recordings are visible to all UMD students [here](https://umd.instructure.com/courses/1302400/external_tools/28827).
 
+## big 
+
 ## maximum contiguous sum.	
 
 ### the problem.
@@ -387,7 +389,60 @@ Since the `search` function halves the search sub-list's length upon every searc
 
 In other words, $2^s = n$, where $s$ is the number of searches and $n$ is the length of the list. Rearranging, we find that $s = \lg n$, so our function's worst-case time complexity is $O(\lg n)$.
 
+## big notation.
 
+### upper bound ~ big $O$.
 
+We know that $f(x) = O(g(x))$ if $\exists (C > 0, x_0 > 0)$ such that if $x \geq x_0$, then $f(x) \leq Cg(x)$. In other words, $Cg(x)$ is an upper bound for $f(x)$ as $x$ approaches $\infin$​.
 
+Using the limit theorem, we know that $f(x) = O(g(x))$ if $\lim_{x \rightarrow \infin} \frac{f(x)}{g(x)} \neq \infin$.
+
+**Show** that $f(x) = 50x^{100} = O(3^x)$.
+
+- Even visually, it's clear that this may be a bit hard to prove with the definition itself. Let's try using the limit theorem:
+  $$
+  \begin{equation}
+  \begin{split}
+  \lim_{x \rightarrow \infin} \frac{f(x)}{g(x)} 
+  &= \lim_{x \rightarrow \infin} \frac{50(100)x^{99}}{\ln 3(3^x)} \\ 
+  &= \lim_{x \rightarrow \infin} \frac{50(100)(99)x^{98}}{(\ln 3)^2(3^x)}  \\ 
+  &= \text{ ...} \\ 
+  &= \lim_{x \rightarrow \infin} \frac{50(100!)}{(\ln 3)^{100}(3^x)} \\
+  &= 0 \neq \infin
+  \end{split}
+  \end{equation}
+  $$
+  Note that the repeated simplifications are a result of L'Hopital's rule. But as a result, we can say that $f(x) = O(3^x)$ by the limit theorem.
+
+  $\blacksquare$
+
+### lower bound ~ big $\Omega$.
+
+We know that $f(x) = \Omega(g(x))$ if $\exists (B > 0, x_0 \geq 0)$ such that if $x \geq x_0$ then $f(x) \geq Bg(x)$. In other words, $Bg(x)$ is a lower bound for $f(x)$ as $x$ approaches $\infin$.
+
+Using the limit theorem, we know that $f(x) = O(g(x))$ if $\lim_{x \rightarrow \infin} \frac{f(x)}{g(x)} \neq 0$.
+
+### "tight" bound ~ big $\Theta$​​.
+
+We know that $f(x) = \Theta(g(x))$ if $\exists(B > 0, C > 0, x_0 \geq 0)$ such that if $x \geq x_0$, then $Bg(x) \leq f(x) \leq Cg(x)$​.
+
+Using the limit theorem, we know that $f(x) = O(g(x))$ if $\lim_{x \rightarrow \infin} \frac{f(x)}{g(x)} \neq 0, \infin$. This makes sense, as if something is a tight bound, it is also both a lower and upper bound.
+
+The best constraint, known as a tight bound. Often hard to find!
+
+**Note** that if $f(x) = \Theta(g(x))$, then $f(x) = \Omega(g(x))$ and $f(x) = O(g(x))$​ as well!
+
+**Show** that $f(x) = 10x \lg x + x^2 = \Theta(x^2)$​.
+
+- We first want to show $f(x) = O(x^2)$. Since $x > \lg x$, we know that $10x^2 + x^2 = 11x^2 > f(x)$​. Let $g(x) = x^2$ and $C = 11$. 
+
+  It follows that $f(x) \leq Cg(x)$ so $f(x) = O(x^2)$.
+
+  Next, we want to show that $f(x) = \Omega(x^2)$. Since $10x \lg x > 0$, we know that $f(x) = 10x \lg x + x^2 > x^2$. Let $g(x) = x^2$ and $B = 1$.
+
+  It follows that $f(x) \geq Bg(x)$ so $f(x) = \Omega(x^2)$.
+
+  Since $f(x) = O(x^2)$ and $f(x) = \Omega(x^2)$, we know that $f(x) = \Theta(x^2)$. 
+
+  $\blacksquare$​
 
