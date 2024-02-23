@@ -2,9 +2,7 @@
 
 ## hello.
 
-These notes are the product of me cramming for my **MATH2B** (Linear Algebra) course through De Anza College. They should cover most, if not all, topics of an introductory linear algebra course. 
-
-I was not a big fan of the textbook/reading materials we used in class, so the structure of these notes is heavily guided by the 3Blue1Brown series, [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab), as its visual-first approach transformed my own understanding of the subject. Where the series skims over technical/computational rigor, I refer to the online textbook, [Interactive Linear Algebra](https://textbooks.math.gatech.edu/ila/), by Dan Margalit and Joseph Rabinoff, to fill in those gaps. This textbook does really good justice to the visual understanding of the subject and has many interactive examples.
+The structure of these notes is heavily guided by the 3Blue1Brown series, [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab), as its visual-first approach transformed my own understanding of the subject. Where the series skims over technical/computational rigor, I refer to the online textbook, [Interactive Linear Algebra](https://textbooks.math.gatech.edu/ila/), by Dan Margalit and Joseph Rabinoff, to fill in those gaps. This textbook does really good justice to the visual understanding of the subject and has many interactive examples.
 
 ## vectors?
 
