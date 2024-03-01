@@ -153,7 +153,7 @@ let char_hp = match char with
 char_hp = 39 (* true *)
 ```
 
-The above example is pretty stupid. We can directly access the members of a record:
+The above example is pretty stupid. We can also directly access the members of a record:
 
 ```ocaml
 char.ptype (* TFire *)
