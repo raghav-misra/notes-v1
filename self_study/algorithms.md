@@ -1,12 +1,18 @@
 # algorithms.
 
+## hello.
+
+Sort of self-studying **CMSC351** Algorithms before I actually take the course in a few weeks. 
+
+Using Prof. Justin Wyss-Gallifent's lectures from spring 2021. The recordings are visible to all UMD students [here](https://umd.instructure.com/courses/1302400/external_tools/28827).
+
 ## maximum contiguous sum.	
 
 ### the problem.
 
 Find the sum of the elements of a contiguous sub-list whose elements have the largest sum.
 
-- The MCS of $[-9, 3, 1, 1, 4, -2, -8]$ is the sum of $[3, 1, 1, 4]$ which is $9$.
+- The MCS of $[-9, 3, 1, 1, 4, -2, -8]$ would be the sum of $[3, 1, 1, 4]$ which is $9$.
 
 I wrote out an $O(n^2)$ solution to the problem on my own, but my guess is that it is likely not the most optimal solution. My solution calculates a running sum starting at every index and repeatedly checks if that sum is the largest.
 
@@ -325,7 +331,7 @@ As with both bubble and selection sort, this algorithm sorts **in-place** and ha
 
 Insertion sort is **stable**, as equal elements never get swapped out of their initial relative orders.
 
-Another thing to note is that if the sort is stopped mid-way, we have no guarantee that the start or end is sorted absolutely. However, we do know that the starting elements are ordered correctly amongst themselves, but there could be values missing from them.
+Another thing to note is that if the sort is stopped mid-way, we have no guarantee that the start or end is sorted absolutely. However, we do now that the starting elements are ordered correctly amongst themselves, but there could be values missing from them.
 
 ## binary search.
 
@@ -389,20 +395,6 @@ We know that $f(x) = O(g(x))$ if $\exists (C > 0, x_0 > 0)$ such that if $x \geq
 
 Using the limit theorem, we know that $f(x) = O(g(x))$ if $\lim_{x \rightarrow \infin} \frac{f(x)}{g(x)} \neq \infin$.
 
-**Show** by the definition that:
-$$
-n^2 \lg n + \lg n - n + 100 \lg^2 n = \mathcal{O}(n^2 \lg n)
-$$
-In other words, we want to prove the existence of a constant $C$ and $n_0 > 0$ such that for all $n > n_0$​, 
-$$
-n^2 \lg n + \lg n - n + 100 \lg^2 n \leq Cn^2 \lg n
-$$
-Since $n$ always increases with itself, we can omit the $n$​ from the above expression when solving for our constants. 
-$$
-n^2 \lg n + \lg n + 100 \lg^2 n \leq Cn^2 \lg n
-$$
-
-
 **Show** that $f(x) = 50x^{100} = O(3^x)$.
 
 - Even visually, it's clear that this may be a bit hard to prove with the definition itself. Let's try using the limit theorem:
@@ -452,28 +444,3 @@ The best constraint, known as a tight bound. Often hard to find!
 
   $\blacksquare$​
 
-## master theorem.
-
-The **master theorem** of recurrence relations is an simpler way to determine time complexity for recursive functions. The theorem is as follows:
-
-- Suppose $T(n)$ is a recurrence relation of the following form:
-  $$
-  T(n) = aT(\frac{n}{b}) + f(n)
-  $$
-  for positive integers $a$ and $b$, and a relation $f(n)$ that is not recursive in nature. Note that the expression $\frac{n}{b}$ can also be floored or "ceilinged."
-
-  We can then say,
-
-  - If $f(n) = \mathcal{O}(n^c)$ and $\log_b{a} > c$, 
-
-    ​	then $T(n) = \Theta(n^{\log_{b}a})$.
-
-  - If $f(n) = \Theta(n^c)$ and $\log_b{a} = c$,
-
-    ​	then $T(n) = \Theta(n^{\log_{b}a} \lg n)$.
-
-  - If $f(n) = \Omega(n^c)$ and $\log_b{a} < c$,
-
-    ​	then $T(n) = \Theta(f(n))$.
-
-**Prove** that 	

@@ -2,8 +2,6 @@
 
 ## hello.
 
-These notes go over the vast majority of the content of the course **CMSC250** (Discrete Structures) at the University of Maryland, College Park. It probably also contains stuff not covered in the class, and probably misses smaller details covered in the course. (I haven't taken the class; tested out of it.) 
-
 I found a really good [video series by Dr. Trefor Bazett](https://www.youtube.com/playlist?list=PLHXZ9OQGMqxersk8fUxiUMSIx0DBqsKZS) that I used to guide my self-study of the course content. Apart from his videos, I also studied from [Dr. Justin Wyss-Gallifent's notes](https://www.math.umd.edu/~immortal/CMSC250/) on the course to fill in gaps in knowledge.
 
 ## statements.
