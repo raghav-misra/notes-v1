@@ -1,11 +1,11 @@
-# cmsc330 / quiz 02
+# cmsc330 / quiz02
 
 ## quiz topics.
 
 1. Higher-order functions, i.e. `map` and `fold`.
 2. Variants, records, and data types.
 3. Imperative OCaml, i.e. `ref`, `for/while`, etc.
-4. Regular expressions.
+4. Regular expressions, cheatsheet given.
 
 ## hofs ~ `map`.
 
