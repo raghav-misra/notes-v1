@@ -1,11 +1,5 @@
 # algorithms.
 
-## hello.
-
-Sort of self-studying **CMSC351** Algorithms before I actually take the course in a few weeks. 
-
-Using Prof. Justin Wyss-Gallifent's lectures from spring 2021. The recordings are visible to all UMD students [here](https://umd.instructure.com/courses/1302400/external_tools/28827).
-
 ## maximum contiguous sum.	
 
 ### the problem.
