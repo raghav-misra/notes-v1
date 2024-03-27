@@ -2,8 +2,7 @@
 
 ## hello.
 
-I found a really good [video series by Dr. Trefor Bazett](https://www.youtube.com/playlist?list=PLHXZ9OQGMqxersk8fUxiUMSIx0DBqsKZS) that I used to guide my self-study of the course content. Apart from his videos, I also studied from [Dr. Justin Wyss-Gallifent's notes](https://www.math.umd.edu/~immortal/CMSC250/) on the course to fill in gaps in knowledge.
-
+Really good [video series by Dr. Trefor Bazett](https://www.youtube.com/playlist?list=PLHXZ9OQGMqxersk8fUxiUMSIx0DBqsKZS). I also studied from [Dr. Justin Wyss-Gallifent's notes](https://www.math.umd.edu/~immortal/CMSC250/).
 ## statements.
 
 A **statement** is some construct that is either distinctly *true* or *false*.
