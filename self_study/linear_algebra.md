@@ -2,7 +2,7 @@
 
 ## hello.
 
-The structure of these notes is heavily guided by the 3Blue1Brown series, [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab), as its visual-first approach transformed my own understanding of the subject. Where the series skims over technical/computational rigor, I refer to the online textbook, [Interactive Linear Algebra](https://textbooks.math.gatech.edu/ila/), by Dan Margalit and Joseph Rabinoff, to fill in those gaps. This textbook does really good justice to the visual understanding of the subject and has many interactive examples.
+3Blue1Brown series, [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab). Online textbook, [Interactive Linear Algebra](https://textbooks.math.gatech.edu/ila/), by Dan Margalit and Joseph Rabinoff.
 
 ## vectors?
 

@@ -34,7 +34,9 @@ $$
 
 ### Counting strategies.
 
-Let's say we want to count all elements of a set that satisfy some condition $x$. This might be a complicated process. Instead, we might be able to find all elements that don't satisfy $x$ and subtract them from the total length of the set.
+Let's say we want to count all elements of a set that satisfy some condition $x$. This might be a complicated process. Instead, we might be able to find all elements that don't satisfy $x$​ and subtract them from the total length of the set.
+
+For circular arrangements, we can fix the position of one person and determine everyone else's positions relative 
 
 ## counting in two ways.
 
@@ -226,7 +228,7 @@ $$
 
 ### recurrences and ogfs
 
-**Question:** Use ogf to find an explicit formula for $a_{n + 2} = 3a_{n + 1} - 2a_n$ where $a_0 = 0$ and $a_1 = 1$.
+**Question:** Use ogf to find an explicit formula for $a_{n + 2} = 3a_{n + 1} - 2a_n$ where $a_0 = 0$ and $a_1 = 1$.	
 $$
 \begin{align*}
 G(x) &= \sum_{n \geq 0} a_n x^n \\
