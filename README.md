@@ -15,17 +15,10 @@ This is where I put down the things I learn!
 
 - **CMSC330** [Organization of Programming Languages](classes/cmsc330.md).
 - **CMSC351** [Algorithms](classes/cmsc351.md).
-- **ECON325** [Intermediate Microeconomic Analysis](classes/econ325.md).
+- **MATH401** [Applications of Linear Algebra](classes/math401.md).
 - **MATH475** [Combinatorics and Graph Theory](classes/math475.md).
 - **STAT400** [Applied Probability and Statistics I](classes/stat400.md).
 
 ## misc.
 
 Just go to [/misc](/misc).
-
-## interesting things.
-
-*:sparkles: In order of importance! :sparkles:*
-
-- Natural Language Processing!
-  - I found a cool, **free** [course](https://huggingface.co/learn/nlp-course) on hugging face.
