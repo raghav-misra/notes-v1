@@ -186,5 +186,5 @@ e^t \frac{dz}{dt} + t^2 = \frac{2t + z}{1 + t^2}
 $$
 We can manipulate the equation as follows:
 $$
-e^t \frac{dz}{dt} - (\frac{1}{1 + t^2}) z =
+e^t \frac{dz}{dt} - (\frac{1}{1 + t^2}) z =ik
 $$
