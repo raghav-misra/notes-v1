@@ -110,8 +110,6 @@
 
 1. **No idea what this means.** Good luck!
 
-1. 
-
 
 ## Let $A$ and $B$ be matrices of some dimensions. Calculate $A + B$, $A - B$, $A*B$, and $B*A$, if possible.
 

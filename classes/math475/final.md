@@ -6,8 +6,6 @@
 
 **Ramsey's Theorem:** There exists (minimal) number $R(k, l)$ so that the graph $K_{R(k, l)}$ has either a $K_k$ subgraph with only RED edges, or a $K_l$ subgraph with only BLUE edges. Notably, $R(k, l) \leq R(k, l - 1) + R(k - 1, l)$. 
 
-
-
 ## m3ow.
 
 Let $G$ be a connected regular graph that is NOT Eulerian. Show that $\overline{G}$, if connected, is Eulerian.
@@ -78,7 +76,7 @@ Using the above and its converse, determine the number of labeled trees with exa
 
 - Nothing on Catalans and parking functions.
 - OGF/EGF, told which one to use.
-- Ramsey theory, 
+- Ramsey theory.
 
 ## review questions.
 
