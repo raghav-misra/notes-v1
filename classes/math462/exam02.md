@@ -12,6 +12,8 @@
 
 ### Things to memorize
 
+#### General equations/solutions
+
 The wave equation itself is $u_{tt} = c^2 u_{xx}$. where $c$ is wave speed.
 
 D'Alembert's equation (general solution for wave on the real line):
@@ -28,9 +30,31 @@ The error function:
 $$
 \text{Erf}(x) = \frac{2}{\sqrt{\pi}} \int_{0}^{x} e^{-p^2} dp.
 $$
-An ODE of the form $X'' + \mu^2 X = 0$ has solution $X(x) = A \cos (\mu x) + B \sin (\mu x)$.
+Some characteristic function tomfoolery yields:
 
-An ODE of the form $X'' - \mu^2 X = 0$ has solution $X(x) = C_1 e^{\mu t} + C_2 e^{-\mu t}$.
+- An ODE of the form $X'' + \mu^2 X = 0$ has solution $X(x) = A \cos (\mu x) + B \sin (\mu x)$.
+- An ODE of the form $X'' - \mu^2 X = 0$ has solution $X(x) = C_1 e^{\mu x} + C_2 e^{-\mu x}$.
+  - Equivalent form: $X(x) = C_1 \cosh(\mu x) + C_2 \sinh(\mu x)$.
+
+#### Series solutions for specific BCs
+
+Wave, homogeneous Dirichlet: $u_{tt} = c^2 u_{xx} \quad (0 < x < \ell) \quad u(0, t) = u(\ell, t) = 0$:
+$$
+u(x, t) = \sum_{n = 1}^{\infty} \left[ A_n \cos \left(\frac{n \pi c t}{\ell}\right) + B_n \sin \left( \frac{n \pi c t}{\ell} \right)  \right] \sin \left( \frac{n \pi x}{\ell} \right).
+$$
+Heat diffusion, homogeneous Dirichlet: $u_t = k u_{xx} \quad (0 < x < \ell) \quad u(0, t) = u(\ell, t) = 0$.
+$$
+u(x, t) = \sum_{n = 1}^{\infty} A_n \left( e^{-(\frac{n \pi}{\ell})^2 kt} \right) \sin \left(\frac{n \pi x}{\ell} \right).
+$$
+Wave, homogeneous Neumann: $u_{tt} = c^2 u_{xx} \quad (0 < x < \ell) \quad u_x(0, t) = u_x(\ell, t) = 0$.
+$$
+\begin{align*}
+	u(x, t) &= \frac{1}{2} A_0 + \frac{1}{2} B_0 \\
+	&\quad + \sum_{n = 1}^{\infty} \left[
+    A_n \cos \left( \frac{n \pi c t}{\ell} \right) +
+    	B_n \sin \left( \frac{n \pi c t}{\ell} \right)\right] \cos \left( \frac{n \pi x}{\ell} \right).
+\end{align*}
+$$
 
 ### Homework problems
 
@@ -137,11 +161,9 @@ $$
 
 ### 4.3—Separation of variables, Robin condition
 
-## Problems from textbook
+## Practice problems
 
-### 2.4 problems
-
-**Problem 1.** Solve the diffusion equation with initial condition
+Solve the diffusion equation with initial condition
 $$
 \phi(x) = \begin{cases}
 	1 &\text{if } |x| < \ell,
@@ -161,15 +183,44 @@ Express your solution in terms of the error function.
   $$
   \text{Erf}(x) = \frac{2}{\sqrt{\pi}} \int_{0}^{x} e^{-p^2} dp.
   $$
-  We transform our solution as needed:
+  We transform our solution as needed. Let $p = \frac{x - y}{\sqrt{4kt}}$. Then, $dp = \frac{-dy}{\sqrt{4kt}}$.
   $$
   \begin{align*}
-  u(x, t) &= \frac{1}{\sqrt{4 \pi kt}} \int_{-\ell}^{\ell} e^{-\frac{(y - x)^2}{4kt}} dy \\
-  \text{Let } p = \frac{(y - x)}{\sqrt{4kt}} \quad &\text{and} 
-  	\quad dp = \frac{dy}{\sqrt{4kt}} \Rightarrow dy = \sqrt{4kt} dp \\
-  	u(x, t) &= \frac{1}{\sqrt{\pi} \cancel{\sqrt{4kt}}} \int_{\frac{-\ell - x}{\sqrt{4kt}}}^{\frac{\ell - x}{\sqrt{4kt}}} e^{-p^2} \cancel{\sqrt{4kt}}dp \\
-  	&= -\frac{1}{\sqrt{\pi} \cancel{\sqrt{4kt}}} \int_{\frac{x - \ell}{\sqrt{4kt}}}^{\frac{x + \ell}{\sqrt{4kt}}} e^{-p^2} \cancel{\sqrt{4kt}}dp \\
-  	&= \frac{1}{2}\left [\text{Erf} \left(\frac{x - \ell}{\sqrt{4kt}} \right) - \left(\frac{x + \ell}{\sqrt{4kt}} \right) \right]
+  u(x, t)
+  	&= \frac{1}{\sqrt{\pi}} \cancel{\frac{1}{\sqrt{4kt}} } \int_{\frac{x + \ell}{\sqrt{4kt}}}^{\frac{x - \ell}{\sqrt{4kt}}} e^{-p^2} (- \cancel{\sqrt{4kt}} dp) \\
+      &= \int_{\frac{x - \ell}{\sqrt{4kt}}}^{\frac{x + \ell}{\sqrt{4kt}}} e^{-p^2} dp 
+      = \frac{1}{2} \left[ \text{Erf}\left(\frac{x + \ell}{\sqrt{4kt}} \right) - \text{Erf} \left( \frac{x - \ell}{\sqrt{4kt}} \right) \right].
   \end{align*}
   $$
+  
+
+Find a general solution for the following PDE over the real line:
+$$
+u_t - 3u_{xx} = \sin x.
+$$
+
+- **Answer.**
+
+  We approach by finding a specific solution and subtracting the general homogeneous solution. Consider a time-independent solution $u_P(x, t) = P(x)$. Then, $u_{P_t} = 0$.
+
+  So we end up with $0 - 3 P''(x) = \sin x$. Solving,
+  $$
+  \begin{align*}
+  	P''(x) &= -\frac{1}{3} \sin x \\
+  	P'(x) &=  \frac{1}{3} \cos x + C_1 \\
+  	u_P(x, t) = P(x) &= \frac{1}{3} \sin x + C_1 x + C_2.
+  \end{align*}
+  $$
+  Recall our general homogeneous solution for $v_{t} = 3u_{xx}$:
+  $$
+  v(x, t) = \frac{1}{\sqrt{4 \pi k t}} \int_{-\infty}^{\infty} e^{-\frac{(x - y)^2}{4kt}} \phi(y) dy.
+  $$
+  Then, we find our integral expression for $u$:
+  $$
+  \begin{align*}
+  	u(x, t) &= u_p(x, t) + v(x, t) \\
+  		&= \frac{1}{\sqrt{12 \pi t}} \int_{-\infty}^{\infty} e^{-\frac{(x - y)^2}{12t}} \phi(y) dy + \frac{1}{3} \sin x + C_1 x + C_2.
+  \end{align*}
+  $$
+  
 
