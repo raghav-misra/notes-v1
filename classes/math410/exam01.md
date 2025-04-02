@@ -4,7 +4,17 @@
 
 ### 1.1—Completeness axiom & consequences
 
-#### The Completeness Axiom
+#### Bounds and the Completeness Axiom
+
+A set is **bounded above** if there exists some value (in or outside the set) that is $\geq$ all the values in the set.
+
+- The **supremum** is the least such upper bound. 
+
+A set is **bounded below** if there exists some value (in or outside the set) that is $\leq$ all the values in the set.
+
+- The **infimum** is the greatest such lower bound.
+
+A set is **bounded** if it is both *bounded above and below*.
 
 The **Completeness Axiom** states if $S \sube \mathbb{R}$ is non-empty and bounded above, it must have a least upper bound ($\sup S$ exists).
 
@@ -69,11 +79,193 @@ The proof is basically just a lot of cases for whether $a$ and $b$ are negative 
 
 ### 2.1—Convergence of sequences
 
-##### TODO
+#### Sequences
+
+A **sequence** of real numbers is a real-valued function whose domain is $\mathbb{N}$. It is just an infinite map of every natural number to some number.
+
+---
+
+#### Def'n of convergence
+
+A sequence $\{a_n\}$ is said to **converge** to the number $A$ if
+$$
+\forall \epsilon > 0, \exists N \in \mathbb{N}, \text{s.t } |a_n - A| < \epsilon, \forall n \geq N.
+$$
+
+---
+
+#### Some convergence proofs
+
+**Example.** Show that $\{1/n\} \rightarrow 0$.
+
+- **Proof.** Let $\epsilon > 0$ be given. By A.P., we have some $N \in \mathbb{N}$ such that $N > 1/\epsilon$. Rearranging, we find $\epsilon > 1/N$. 
+
+  For all $n \geq N$, we have $\frac{1}{n} \leq \frac{1}{N}$. Then,
+  $$
+  \begin{align*}
+  	|\frac{1}{n} - 0| 
+      	&= \frac{1}{n}
+      	&\text{def'n of absolute value for $\geq 0$} \\
+      	&\leq \frac{1}{N} < \epsilon,
+  \end{align*}
+  $$
+  as needed.
+
+**Example.** Show that $\{(-1)^n\}$ does not converge.
+
+- This can be done by assuming the contradiction, that the sequence converges to some $A$, and considering that $|(-1)^n - A|$ for some $\epsilon < 1$ (the $\epsilon$-tube is less than $2$) is not actually possible.
+
+---
+
+#### Comparison Lemma
+
+The **Comparison Lemma (C.L.)** states that if some sequence $\{a_n\} \rightarrow A$, then another sequence $\{b_n\} \rightarrow B$ if there exists a non-negative $C$ and index $N_1$ for which
+$$
+|b_n - B| \leq C |a_n - A|, \quad \forall n \geq N_1.
+$$
+
+---
+
+#### Proof of C.L.
+
+- Let $\epsilon > 0$ be given. Choose $\epsilon_0 = \epsilon / C$. By definition of convergence for $\{a_n\}$, $\exists N \in \mathbb{N}$ such that for all $n\ \geq \mathbb{N}$,
+  $$
+  |a_n - A| < \epsilon_0 = \epsilon / C.
+  $$
+  Then, consider the convergence of $\{b_n\} \rightarrow B$. We have that for all $n \geq \max(N, N_1)$,
+  $$
+  |b_n - B| \leq C |a_n - A| < C \cdot \epsilon / C = \epsilon,
+  $$
+  as needed.
+
+---
+
+#### Operations on convergent sequences
+
+The **sum property** states that if we have two sequences $\{a_n\}$ and $\{b_n\}$ which converge to $A$ and $B$, respectively, then the sequence $\{a_n + b_n\}$ converges to $A + B$.
+
+- **Proof.** Let $\epsilon > 0$. Then by definition of convergence, we have that for $N_A, N_B \in \mathbb{N}$,
+  $$
+  |a_n - A| < \epsilon/2 \quad \forall n \geq N_1, \\
+  |b_n - B| < \epsilon/2 \quad \forall n \geq N_2.
+  $$
+  Then $\forall n \geq \max(N_1, N_2)$,
+  $$
+  \begin{align*}
+  	|(a_n + b_n) - (A + B)|
+  		&= |(a_n - A) + (b_n - B)| \\
+  		&\leq |a_n - A| + |b_n - B|
+  			&\text{triangle inequality} \\
+      	&< (\epsilon/2) + (\epsilon/2) = \epsilon,
+  \end{align*}
+  $$
+  as needed.
+
+The **product property** states that if we have two sequences $\{a_n\}$ and $\{b_n\}$ which converge to $A$ and $B$, respectively, then the sequence $\{a_n \cdot b_n\}$ converges to $AB$.
+
+- **Lemma I.** If a sequence $\{a_n\} \rightarrow A$, then for some $C$, $\{C a_n\} \rightarrow a_n$.
+
+  - *The proof is pretty obvious if you use the Convergence Lemma.*
+
+- **Lemma II**. If two sequences converge to zero, their product converges to zero.
+
+  - By definition of convergence,  $|a_n - 0| = |a_n| < \sqrt{\epsilon}$ and $|b_n - 0| = |b_n| < \sqrt{\epsilon}$.
+  - Then you consider $|a_n b_n|$ and find $|a_n b_n| < \sqrt{\epsilon}^2 = \epsilon$, as needed.
+
+- **Proof.** For each index $n$, we define $\{\alpha_n\} = \{a_n - a\}$ and $\{\beta_n\} = \{b_n - b\}$. Then, the proof of convergence of both $\{\alpha_n\}$ and $\{\beta_n\}$ to $0$ reduces to the convergence of $\{a_ n\} \rightarrow a$ and $\{b_n\} \rightarrow b$, respectively.
+
+  We want to show that $\{a_n b_n - ab\} \rightarrow 0$, which is equivalent to $\{a_n b_n\} \rightarrow a_n b_n$.
+
+  For each index $n$, since $a_n = a + \alpha_n$ and $b_n = b + \beta_n$, 
+  $$
+  \begin{align*}
+  	a_n b_n - ab 
+      	&= (a + \alpha_n) (b + \beta_n) - ab \\
+      	&= ab + b \alpha_n + a \beta_n + \alpha_n \beta_n - ab \\
+      	&= \alpha_n \beta_n + a \beta_n + b \alpha_n.
+  \end{align*}
+  $$
+  Then the limit of the expression becomes
+  $$
+  \begin{align*}
+  	\lim_{n \rightarrow \infty} [a_n b_n - ab] 
+      	&= \lim_{n \rightarrow \infty} [\alpha_n \beta_n + a \beta_n + b \alpha_n] \\
+      	&= \lim_{n \rightarrow \infty} \alpha_n \beta_n
+          	+ \lim_{n \rightarrow \infty} a \beta_n
+          	+ \lim_{n \rightarrow \infty} b \alpha_n
+          	&\text{sum property} \\
+          &= 0 + a \cdot 0 + b \cdot 0 = 0
+          	&\text{by Lemmas I and II},
+  \end{align*}
+  $$
+  as needed.
+
+The **quotient property** states that the quotient of two convergent sequences converges to the quotient of the values they converge to, contingent on the denominator sequence always being non-zero.
+
+- **Proof.** TODO/Omitted for time's sake, hope it's not on the exam!
+  - Depends on a lemma showing that if $\{a_n\} \rightarrow A$ and $\{a_n\} \neq 0,\, \forall n$, then $\{\frac{1}{a}\} \rightarrow \frac{1}{A}$.
+  - Then we apply the product property between $\{a_n\}$ and $\{\frac{1}{b_n}\}$.
+
+#### Linearity and polynomial properties
+
+The **linearity property** follows from the sum and product properties and states that for $\{a_n\} \rightarrow A$ and $\{b_n\} \rightarrow B$ and some values $\alpha$ and $\beta$,
+$$
+\lim_{n \rightarrow \infty} [\alpha a_n + \beta b_n] = \alpha \lim_{n \rightarrow \infty} \{a_n\} 
+	+ \beta \lim_{n \rightarrow \infty} \{b_n\}.
+$$
+The **polynomial property** states if $\{a_n\} \rightarrow A$, then $\{p(a_n)\} \rightarrow p(A)$ where $p(n)$ is a polynomial function of $n$.
 
 ### 2.2—Sequences and sets
 
-##### TODO
+#### Boundedness (of sequences)
+
+Recall that a set is *bounded* if it is bounded above and below. This is equivalent to the following:
+$$
+|x| \leq M, \quad \forall x \in S.
+$$
+We say that a sequence $\{a_n\}$ is **bounded** if
+$$
+|a_n| \leq M, \quad n \in \mathbb{N}.
+$$
+**Theorem.** All convergent sequences are bounded.
+
+- **Proof.** Let $\{a_n\}$ converge to $A$. By definition of convergence, $\forall \epsilon > 0, \exists N \in \mathbb{N}$ such that for all $n \geq N$,
+  $$
+  |a_n - A| < \epsilon.
+  $$
+   We choose $\epsilon = 1$. Then consider $|a_n|$ for $n \geq N$,
+  $$
+  \begin{align*}
+  	|a_n| 
+  		&= |a_n - A + A| \\
+  		&\leq |a_n - A| + |A| &\text{triangle inequality} \\
+  		&< \epsilon + |A| &\text{def'n convergence} \\
+  		&= 1 + |A| &\text{substitute $\epsilon = 1$}.
+  \end{align*}
+  $$
+  We then have that all elements at index $N$ and greater are bounded by $1 + |A|$. Considering the finite set of elements in $A$ from index $1$ to $N - 1$, this set is bounded by $\max \{a_1, \dots, a_{N - 1}\}$.
+
+  Thus, the entire sequence must be bounded by either the maximum of the first $N - 1$ elements or the bound we found for the elements at index $N$ and onwards. As such, for all $n \in \mathbb{N}$,
+  $$
+  a_n \leq \max\{a_1, \dots, a_{N - 1}, 1 + |A|\},
+  $$
+  as desired.
+
+---
+
+#### Sequential density
+
+We defined a set $S$ to be **dense** in $\mathbb{R}$ if every open interval in $\mathbb{R}$ contained a point in $S$.
+
+A sequence is **in a set** $S$ provided that every element of the sequence $\in S$.
+
+**Theorem.** A set $S$ is dense in $\mathbb{R}$ if and only if every number $x \in \mathbb{R}$ is the limit of a sequence in $S$.
+
+- **Proof**. TODO/Omitted for time's sake. Hope it's not on the exam!
+
+**Sequential Density of the Rationals.** Every real number is the limit of a sequence in $\mathbb{N}$.
+
+- Follows from the previous theorem since $\mathbb{N}$ is dense in $\mathbb{R}$.
 
 ### 2.3—Monotone convergence theorem
 
@@ -794,26 +986,16 @@ $$
 
 - **Proof.** Let $\epsilon > 0$ and $x_0 \in (0, \infty)$ be given.
 
-  Then we let $\delta > 0$ and assume $|x - x_0| < \delta$. We will find a value for $\delta$ such that $|f(x) - f(x_0)| < \epsilon$. We let $\delta \leq 1$. Then, consider $|x|$,
+  Then we let $\delta > 0$ and assume $|x - x_0| < \delta$. We will find a value for $\delta$ such that $|f(x) - f(x_0)| < \epsilon$. We let $\delta \leq \frac{x_0}{2}$. Then, consider $|x - x_0|$,
+  
+  To find bounds for $x$, consider $|x - x_0|$,
   $$
   \begin{align*}
-  	|x| 
-  		&= |x - x_0 + x_0| \\
-  		&\leq |x - x_0| + |x_0|
-  			&\text{triangle inequality} \\
-          &= \delta + |x_0| \\
-         |x| &< 1 + |x_0| &\text{(I)}
-  \end{align*}
-  $$
-  To find a lower bound for $x$, consider $|x - x_0|$,
-  $$
-  \begin{align*}
-  	|x - x_0| &< \delta \leq 1 \\
-  	-1 &< x - x_0 \\
-  	x &> x_0 -1 \\
-  	x^2 &> (x_0 - 1)^2 = x_0^2 - 2x_0 + 1 > -2x_0 \\
-  	\frac{1}{x^2} &< -\frac{1}{2x_0}
-  		&\text{(II)}
+  	|x - x_0| &< \delta \leq \frac{x_0}{2} \\
+  	-x_0/2 &< x - x_0 < x+0/2 \\
+  	x_0/2 &< x < 3x_0/2 \\
+  	(x_0/2)^2 &< x^2 \\
+  	x_0^2/4 &< x^2	
   \end{align*}
   $$
   Then, consider $|f(x) - f(x_0)|$,
@@ -826,14 +1008,10 @@ $$
   			&\text{diff. of squares} \\
   		&\leq \frac{(|x_0| + |x|) |x_0 - x|}{|x^2| \cdot |x_0^2|}
   			&\text{triangle inequality} \\
-          &< \frac{\delta (|x_0| + 1 + |x+0|)}{|x^2| \cdot |x_0^2|}
-          	&\text{substitute (I)} \\
-          &= \delta \frac{2|x_0| + 1}{|x^2| \cdot |x_0^2|} \\
-          &< \delta \frac{2|x_0| + 1}{2x_0 \cdot |x_0^2|}
-          	&\text{substitute (II)}
+          &\leq \frac{\delta (|x_0| + |3x_0/2|)}{|(x_0/2)^2| |x_0^2|}
   \end{align*}
   $$
-  Now, we explicitly let $\delta = \min(1, \frac{\epsilon \cdot 2x_0 \cdot |x_0^2|}{2|x_0| + 1})$. Then, we have
+  Now, we explicitly let $\delta = \min(1, \frac{\epsilon |(x_0/2)^2| |x_0^2|}{|x_0| + |3x_0/2|)})$. Then, we have
   $$
   |f(x) - f(x_0)| < \epsilon,
   $$
@@ -841,8 +1019,124 @@ $$
 
 ### 3.6—Images, inverses, monotone functions
 
-##### TODO
+#### Continuity criterion for monotone functions
+
+A function $f$ is **monotonically increasing** if for all $i < j$, $f(i) \leq f(j)$.
+
+A function $f$ is **monotonically decreasing** if for all $i < j$, $f(i) \geq f(j)$.
+
+If $f$ is either one, we consider it **monotone**. If $f$ still holds if you drop the "equal to" symbol then it is **strictly** *increasing on decreasing*, both cases called *strictly monotone*.
+
+**Theorem.** If $f: D \rightarrow \mathbb{R}$ is monotone and its image $f(D)$ is an interval, then the function $f$ is continuous.
+
+-  **Proof.** Omitted for time.
+
+---
+
+#### Continuity of inverse functions
+
+The function $f: D \rightarrow \mathbb{R}$ is **one-to-one** if for every value $f(D)$ there is one corresponding $x$-value in $D$.
+
+> [!NOTE]
+>
+> **One-to-one** says if $f(x_1) = y_1$ and $f(x_2) = y_1$, then $x_1 = x_2$.
+
+**Theorem.** Let $I$ be an interval. Suppose $f: I \rightarrow \mathbb{R}$ is strictly monotone. Then $f^{-1}: f(I) \rightarrow \mathbb{R}$ is continuous. 
+
+A consequence of this is that $f(x) = x^r$, where $r$ is a rational, is continuous over $(0, \infty)$.
+
+- **Proof.** We express $r$ as $m/n$ where $n$ is positive. Then we express $f$ as the composition of $g(x) = x^{1/n}$ and $h(x) = x^m$. We have that $h$ is continuous since it is a polynomial. To show $f$'s continuity by the composition property of continuous functions, we must show $g$ is continuous over $(0, \infty)$.
+
+  $g$ is the inverse of a strictly increasing function $g^{-1}(x) = x^n$ over the interval $(0, \infty)$, so it must be continuous over the interval. Then by composition of continuous functions, we have $(g \circ h) = f$ is continuous. 
 
 ### 3.7—Limits
 
-##### TODO
+#### Definition of limit point
+
+For a set $D$ of real numbers, $x_0$ is called a **limit point** of $D$ provided there is a sequence of points in $D - \{x_0\}$ which converges to $x_0$.
+
+> [!NOTE]
+>
+> Key point here is that the limit point need not be in the domain. Only the sequence which converge to it must be in the domain. For example, $\frac{1}{n}$ is in $(0, 1)$ but converges to $0$. So $0$ is a limit point of $(0, 1)$.	
+
+Given a function $f$ and a limit point $x_0$ in its domain, we say 
+$$
+\lim_{x \rightarrow x_0} f(x) = \ell
+$$
+provided that whenever a sequence *in the domain $- \{x_0\}$ $\{x_n\} \rightarrow x_0$,
+$$
+\lim_{n \rightarrow \infty} f(x_n) = \ell.
+$$
+As such, we can see that a function $f$ is continuous at $x_0$ if its limit as $x \rightarrow x_0$ is equal to $f(x_0)$.
+
+#### Properties of limits
+
+Basically a rehashing of the properties for continuous functions: **sum, product, quotient, composition**.
+
+- Except the $x$ now approaches the limit point and the $\lim$ itself approaches the value.
+
+## Practice Problems
+
+**Suppose** $a_n$ is a bounded sequence and $b_n$ is a sequence which diverges to $\infty$. Prove that $a_n + b_n$ diverges to $\infty$.
+
+- **Proof.** 
+
+  By the definition of boundedness, we have $K \geq 0$ such that $|a_n| \leq K$ for all $n$. Then,
+  $$
+  -K \leq a_n \leq K.
+  $$
+  
+
+  By the definition of divergence, we have $\forall M > 0$, $\exists N \in \mathbb{N}$ such that for all $n \geq N$, $b_n > M$.
+
+  Then, we have $\exists N_1$ such that for all $n \geq N_1$, $b_n > M + K$.
+
+  Then we consider the sequence $a_n + b_n$ for a given $M > 0$ and $n \geq N_1$.
+  $$
+  a_n + b_n > -K + (M + K) > M,
+  $$
+   so we have that $a_n + b_n$ diverges to $\infty$. $\square$ 
+
+**Prove** a monotone sequence is bounded if it has a bounded sequence.
+
+- **Proof.** The subsequence $\{a_{n_k}\}$ is bounded, so $\exists K > 0, \forall k, \text{s.t. } |a_{n_k}| \leq K$.
+
+  Since every member of $a_{n_k}$ is bounded by $K$, for all $N \in \mathbb{N}$, there exists $n \geq N$ for which $|a_n| \leq K$.
+
+  - That is, $-K \leq a_n < K$. 
+
+  We proceed by cases.
+
+  *Case 1: $a_n$ is monotonically increasing.*
+
+  - We have for some $i < n$, $a_i \leq a_n$. So for all $N \in \mathbb{N}$, $\exists n \geq N$ such that $a_1 \leq a_2 \leq \cdots \leq a_n \leq K$. 
+  - As such, there are infinite elements bounded above which imply that all preceding elements are bounded above as well, by the monotonicity assumption of $a_n$.
+  - All elements in the sequence are bounded below by $a_1$ and above by $K$, so the sequence must be bounded by $\max(|a_1|, K)$.
+
+  *Case 2: $a_n$ is monotonically decreasing.* 
+
+  - We have for some $i < n$, $a_i \geq a_n$. So for all $N \in \mathbb{N}$, $\exists n \geq N$ such that $a_1 \geq a_2 \geq \cdots \geq a_n \geq -K$.
+  - As such, there are infinite elements bounded below which imply that all preceding elements are bounded below as well, by the monotonicity assumption of $a_n$.
+  - All elements in the sequence are bounded above by $a_1$ and below by $-K$, so the sequence must be bounded by $\max(|a_1|, |-K|) = \max(|a_1|, K)$.
+
+  So $\{a_n\}$ must be bounded in both exhaustive cases. $\square$
+
+**Using** the definition of limit, find the limit of the sequence $a_n = \frac{2n + 1}{n - 1} + \frac{1}{n}$.
+
+- **Proof.** Let $\epsilon > 0$ be given. By A.P., $\exists N \in \mathbb{N}$ such that $N > \frac{4}{\epsilon} - 1$. 
+
+  Consider that $n \geq N$ so $\frac{1}{N} \geq \frac{1}{n}$. Then for all $n \geq N$,
+  $$
+  \begin{align*}
+  	|\frac{2n + 1}{n - 1} + \frac{1}{n} - 2|
+  		&= |\frac{n(2n + 1) + (n - 1)}{n(n - 1)} - \frac{2n(n - 1)}{n(n - 1)}| \\
+  		&= |\frac{2n^2 + n + n - 1 - 2n^2 + 2n}{n(n - 1)}| \\
+  		&= |\frac{4n - 1}{n(n + 1)}| \\
+  		&= \frac{4n - 1}{n(n + 1)} &\text{def'n of $|\cdot|$ for $\geq 0$} \\
+  		&< \frac{4n}{n(n + 1)} \\
+  		&< \frac{4}{n + 1} = \frac{4}{N + 1} < \frac{4}{(\frac{4}{\epsilon} - 1) + 1} = \epsilon,
+  \end{align*}
+  $$
+  as needed. $\square$
+
+  
