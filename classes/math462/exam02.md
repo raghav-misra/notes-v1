@@ -14,39 +14,59 @@
 
 #### General equations/solutions
 
-The wave equation itself is $u_{tt} = c^2 u_{xx}$. where $c$ is wave speed.
+**The wave equation** itself is $u_{tt} = c^2 u_{xx}$. where $c$ is wave speed.
 
-D'Alembert's equation (general solution for wave on the real line):
+**D'Alembert's equation** (general solution for wave on the real line):
 $$
 u(x, t) = \frac{1}{2} [\phi(x + ct) + \phi(x - ct)] + \frac{1}{2c} \int_{x - ct}^{x + ct} \psi(y) dy.
 $$
-The heat equation itself is $u_t = ku_{xx}$.
+**The heat equation** itself is $u_t = ku_{xx}$.
 
-The general solution for heat equation on the real line:
+**The general solution for heat equation** on the real line:
 $$
 u(x, t) = \frac{1}{\sqrt{4 \pi k t}} \int_{-\infty}^{\infty} e^{-\frac{(x - y)^2}{4 kt}} \phi(y) dy, \quad \text{for } t > 0.
 $$
-The error function:
+**The error function:**
 $$
 \text{Erf}(x) = \frac{2}{\sqrt{\pi}} \int_{0}^{x} e^{-p^2} dp.
 $$
-Some characteristic function tomfoolery yields:
+Some characteristic function stuff yields:
 
 - An ODE of the form $X'' + \mu^2 X = 0$ has solution $X(x) = A \cos (\mu x) + B \sin (\mu x)$.
 - An ODE of the form $X'' - \mu^2 X = 0$ has solution $X(x) = C_1 e^{\mu x} + C_2 e^{-\mu x}$.
   - Equivalent form: $X(x) = C_1 \cosh(\mu x) + C_2 \sinh(\mu x)$.
 
+#### Half-line general solutions
+
+**Wave, homogeneous Dirichlet.**
+
+**Wave, homogeneous Neumann.**
+
+**Heat, homogeneous Dirichlet.** 
+$u_t = k u_{xx} \quad (0 < x < \infty) \quad u(x, 0) = \phi(x), \quad u(0, t) = 0.$
+$$
+u(x, t) = \int_{0}^{\infty} [e^{-\frac{(x - y)^2}{4kt}} - e^{-\frac{(x + y)^2}{4kt}}] dy.
+$$
+**Heat, homogeneous Neumann. **
+$u_t = k u_{xx} \quad (0 < x < \infty) \quad u(x, 0) = \phi(x), \quad u_x(0, t) = 0.$
+$$
+u(x, t) = \int_{0}^{\infty} [e^{-\frac{(x - y)^2}{4kt}} + e^{-\frac{(x + y)^2}{4kt}}] dy.
+$$
+
 #### Series solutions for specific BCs
 
-Wave, homogeneous Dirichlet: $u_{tt} = c^2 u_{xx} \quad (0 < x < \ell) \quad u(0, t) = u(\ell, t) = 0$:
+**Wave, homogeneous Dirichlet:** 
+$u_{tt} = c^2 u_{xx} \quad (0 < x < \ell) \quad u(0, t) = u(\ell, t) = 0$.
 $$
 u(x, t) = \sum_{n = 1}^{\infty} \left[ A_n \cos \left(\frac{n \pi c t}{\ell}\right) + B_n \sin \left( \frac{n \pi c t}{\ell} \right)  \right] \sin \left( \frac{n \pi x}{\ell} \right).
 $$
-Heat diffusion, homogeneous Dirichlet: $u_t = k u_{xx} \quad (0 < x < \ell) \quad u(0, t) = u(\ell, t) = 0$.
+**Heat, homogeneous Dirichlet.** 
+$u_t = k u_{xx} \quad (0 < x < \ell) \quad u(0, t) = u(\ell, t) = 0$.
 $$
 u(x, t) = \sum_{n = 1}^{\infty} A_n \left( e^{-(\frac{n \pi}{\ell})^2 kt} \right) \sin \left(\frac{n \pi x}{\ell} \right).
 $$
-Wave, homogeneous Neumann: $u_{tt} = c^2 u_{xx} \quad (0 < x < \ell) \quad u_x(0, t) = u_x(\ell, t) = 0$.
+**Wave, homogeneous Neumann.** 
+$u_{tt} = c^2 u_{xx} \quad (0 < x < \ell) \quad u_x(0, t) = u_x(\ell, t) = 0$.
 $$
 \begin{align*}
 	u(x, t) &= \frac{1}{2} A_0 + \frac{1}{2} B_0 \\
@@ -54,6 +74,12 @@ $$
     A_n \cos \left( \frac{n \pi c t}{\ell} \right) +
     	B_n \sin \left( \frac{n \pi c t}{\ell} \right)\right] \cos \left( \frac{n \pi x}{\ell} \right).
 \end{align*}
+$$
+
+**Heat, homogeneous Neumann.** 
+$u_t = k u_{xx} \quad (0 < x < \ell) \quad u_x(0, t) = u_x(\ell, t) = 0$.
+$$
+u(x, t) = \frac{1}{2} A_0 + \sum_{n = 1}^{\infty} A_n e^{-(\frac{n \pi}{\ell})^2 kt} \cos \left(\frac{n \pi x}{\ell} \right).
 $$
 
 ### Homework problems
@@ -80,7 +106,7 @@ $$
 
 ## Notes from textbook
 
-### 2.4—Diffusion on the whole line
+### Diffusion on the whole line
 
 Our purpose is to solve the following equation:
 $$
@@ -109,13 +135,84 @@ $$
 \text{Erf}(x) = \frac{2}{\sqrt{\pi}} \int_{0}^{x} e^{-p^2} dp.
 $$
 
-### 3.1—Diffusion on the half-line
+### Half-line reflections
 
-### 3.2—Reflections of waves
+#### Heat diffusion
 
-### 3.4—Waves with a source
+**Dirichlet.** Consider the following problem:
+$$
+u_t = k u_{xx} \quad (0 < x < \infty, t > 0) \quad u(x, 0) = \phi(x), \quad u(0, t) = 0.
+$$
+This is the diffusion PDE over half of the real line, with Dirichlet BC at one endpoint.
 
-### 4.1—Separation of variables, Dirichlet condition
+$\phi$ is only defined for $x \geq 0$. To solve, we take the odd extension of $\phi$ to the whole line:
+$$
+\phi_{odd}(x) = \begin{cases}
+	\phi(x) &\text{if } x > 0, \\
+	-\phi(-x) &\text{if } x < 0, \\
+	0 &\text{if } x = 0.
+\end{cases}
+$$
+We substitute this into the general form:
+$$
+u(x, t) = \frac{1}{\sqrt{4 \pi k t}} \int_{-\infty}^{\infty} 
+	e^{-\frac{(x - y)^2}{4 kt}} \phi_{odd}(y) dy, \quad \text{for $x$ > 0}.
+$$
+We can rewrite in terms of $\phi$ using our odd property of $\phi_{odd}$.
+$$
+\begin{align*}
+u(x, t) &= \frac{1}{\sqrt{4 \pi k t}} \int_{0}^{\infty} 
+	e^{-\frac{(x - y)^2}{4 kt}} \phi(y) dy \\
+	&\quad- \frac{1}{\sqrt{4 \pi k t}} \int_{-\infty}^{0} 
+	e^{-\frac{(x - y)^2}{4 kt}} \phi(-y) dy \\
+	&= \int_{0}^{\infty} [e^{-\frac{(x - y')^2}{4kt}} - e^{-\frac{(x + y')^2}{4kt}}] dy' &\text{u-sub } y' = -y.
+\end{align*}
+$$
+**Neumann.** Now, consider the following problem:
+$$
+u_t = k u_{xx} \quad (0 < x < \infty, t > 0) 
+	\quad u(x, 0) = \phi(x),
+	\quad u_x(0, t) = 0.
+$$
+This is the diffusion PDE over half of the real line, with Neumann BC at one endpoint.
+
+We solve by taking an even reflection of $\phi$:
+$$
+\begin{align*}
+\phi_{even} = \begin{cases}
+	\phi(x) &\text{if } x > 0, \\
+	\phi(-x) &\text{if } x < 0, \\
+	0 &\text{if } x = 0.
+\end{cases}
+\end{align*}
+$$
+Now we substitute this into our general solution:
+$$
+u(x, t) = \frac{1}{\sqrt{4 \pi k t}} \int_{-\infty}^{\infty} 
+	e^{-\frac{(x - y)^2}{4 kt}} \phi_{even}(y) dy, \quad \text{for $x$ > 0}.
+$$
+We can rewrite in terms of $\phi$ using our even property of $\phi_{even}$.
+$$
+\begin{align*}
+u(x, t) &= \frac{1}{\sqrt{4 \pi k t}} \int_{-\infty}^{\infty} 
+	e^{-\frac{(x - y)^2}{4 kt}} \phi_{even}(y) dy \\
+	&= \frac{1}{\sqrt{4 \pi k t}} \int_{0}^{\infty} 
+	e^{-\frac{(x - y)^2}{4 kt}} \phi(y) dy \\
+	&\quad+ \frac{1}{\sqrt{4 \pi k t}} \int_{-\infty}^{0} 
+	e^{-\frac{(x - y)^2}{4 kt}} \phi(-y) dy \\
+	&= \int_{0}^{\infty} [e^{-\frac{(x - y')^2}{4kt}} + e^{-\frac{(x + y')^2}{4kt}}] dy' &\text{u-sub } y' = -y.
+\end{align*}
+$$
+
+#### Waves
+
+
+
+### Waves with a source
+
+### Separation of variables
+
+#### Dirichlet conditions
 
 The infinite series solution to the wave equation with homogeneous Dirichlet conditions
 $$
@@ -134,7 +231,7 @@ $$
 u(x, t) = \sum_{n = 1}^{\infty} A_n \left( e^{-(\frac{n \pi}{\ell})^2 kt} \right) \sin \left(\frac{n \pi x}{\ell} \right).
 $$
 
-### 4.2—Separation of variables, Neumann condition
+#### Neumann conditions
 
 The infinite series solution to the wave equation with homogeneous Neumann BCs
 $$
@@ -159,7 +256,7 @@ $$
 u(x, t) = \frac{1}{2} A_0 + \sum_{n = 1}^{\infty} A_n e^{-(\frac{n \pi}{\ell})^2 kt} \cos \left(\frac{n \pi x}{\ell} \right).
 $$
 
-### 4.3—Separation of variables, Robin condition
+#### Robin conditions
 
 ## Practice problems
 
