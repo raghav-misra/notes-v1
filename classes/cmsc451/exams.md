@@ -47,7 +47,7 @@
 
 **Scheduling.** *EFF* is optimal. Others, *ESF*, *SDF*, aren't.
 
-- **Proof of EFF optimality:** Let $O$ be optimal. Let $G$ be *EFF* result. $O$ must have at least as many intervals as $G$. Assume $O \neq G$. Consider first $i$ where $O_i \neq G_i$. We know $G_i$ does not conflict with any earlier request, so we replace $O_i$ with $G_i$. Clearly, schedule is still valid and optimal. This can be done repeated and we entirely make $O$ into $G$, so both are maximal.
+- **Proof of EFF optimality:** Let $O$ be optimal. Let $G$ be *EFF* result. $O$ must have at least as many intervals as $G$. Consider first $i$ where $O_i \neq G_i$. We know $G_i$ does not conflict with any earlier request, so we replace $O_i$ with $G_i$. Clearly, schedule is still valid and optimal. This can be done repeated and we entirely make $O$ into $G$, so both are maximal.
 
 **Partitioning.** Two overlapping intervals have different colors. $O(n^2)$.
 
@@ -95,8 +95,6 @@ M(i, j) = \begin{cases}
 	&\text{if } i < j.
 \end{cases}
 $$
-## 
-
 ## DP: Floyd-Warshall Algorithm
 
 **Floyd-Warshall.** Shortest path between all pairs of nodes. Let `dist` be a $V\times V$ matrix. Let `dist[u][u]` be $0$ for all $u$. `dist[i][j]` is min distance from node $i$ to node $j$.
@@ -123,3 +121,76 @@ $$
 - **[1] to [2]** By contradiction. If $s-t$ paths, flow not maximal.
 - **[2] to [3]** No $s-t$ paths. Let $S$ and all vertices reachable from $S$ be $X$. Let remaining vertices (including $T$) be $Y$. Clearly the edges from $X$ to $Y$ have been exhausted, so flow is equal to maximum flow which can be sent across these edges, which is the cut capacity $c(X, Y)$.
 - **[3] to [1]** Flow upper bounded by cut capacity, so if it's equal, it can't be greater. Hence maximal.
+
+## Network Flows: Applications
+
+**Circulation**. Let $S$, $D$ be sets of supply, demand nodes. Edges with capacity will exist for various nodes from $S$ to nodes in $D$.
+
+- Demand nodes have positive demand (duh). Supply nodes have negative demand.
+- Want feasible circulation. How to send stuff from $S$ to $D$ and match capacity across edges and node demands?
+- *Decision problem.* Can it be done or not?
+- **Reducible to network flow.** Add super-source (link to $S$ nodes) and super-sink (link to $D$ nodes). Then, find max flow. If max-flow = total demand, *yes*, else *no*.
+
+**With Lower Bounds.** Above only has upper bounds on edges.
+
+- For each edge, we "force the min capacity." Then, remaining flexible capacity is $\text{upper} - \text{lower}$.
+- For the node pushing flow, we decrease demand by $\text{lower}$.
+- For the node receiving it, we increase demand by $\text{lower}$.
+
+**Survey Design.** We sell $k$ products. Want to survey $n$ customers. Tailor the survey to customers based on products they have bought. 
+
+- $i$th customer has tolerance for $[c_i^-, c_i^+]$ questions.
+- $j$th product needs surveying by $[p_j^-, p_j^+]$ customers.
+- *Bipartite graph: sets of customers and products.*
+- Edge $(i, j)$ with bounds $[0, 1]$ between customer $i$ who bought product $j$.
+- Super source $s$ and sink $t$. Edge $(s, i)$ for any customer $i$ should have bounds $[c_i^-, c_i^+]$. Edge $(j, t)$ for any product $j$ should have bounds $[p_j^-, p_j^+]$.
+
+## P/NP: Definitions
+
+**P.** Problems solvable in poly time. **NP.** Solutions can be verified in poly time. (Certificate + verification algo.)
+
+- Problem $X$ is **NP-Hard** if any problem $Y$ in NP can be reduced to problem $X$; $X$ need not be in $NP$.
+- Problem $X$ is **NP-complete** if it is NP-hard AND in NP.
+
+**Reduction.** Devise an algorithm (polynomial time) which takes instance $x$ of problem $X$ and *reduces* it to instance $y$ of problem $Y$. Then $X \leq_P Y$ if the following can be proved.
+$$
+x \text{ solves } X \text{ iff } y \text{ solves }Y.
+$$
+
+## P/NP: Problems
+
+**Cook's Theorem.** SAT is NP-complete. 
+
+The following problems are all NP-complete.
+
+**SAT.** Can we assign values to some Boolean variable expression (with ANDs and ORs and NOTs) such that it evaluates to true?
+
+**IS. **Does a $k$-set of non-adjacent vertices exist?
+
+**Clique.** Does a $k$-set of completely connected vertices exist?
+
+**VC.** Does $k$-set of vertices to which all edges are incident exist?
+
+**DS.** Does a $k$-set of vertices s.t. all vertices are in or adjacent to a vertex in the set exist?
+
+**(D)HC.** $G$ has a cycle which visits all nodes once.
+
+## Approximations
+
+Some hard problems can be approximated to varying degrees. Constant or polynomial factor, PTAS of $\epsilon$, or inapproximable.
+
+**VC. Approx.** (Greedy, like set cover, yields $\ln n$ factor.) 
+
+- **Matching** is an edge set that hits every vertex.
+- *Maximal matching* is not a subset of any other matching.
+- $M$ is maximal matching; $V^*$ is optimal vertex cover.
+- Then, $|M| \leq V^* \leq 2|M|$. All endpoints of make a VC.
+- *Algorithm.* Construct $M$. (Repeatedly pick an edge, add it, and then discard all edges incident to its endpoints.) Then pick all endpoints, yielding  VC of at most $2|M|$. 
+
+**Approximation factors not preserved by reductions.**
+
+**TSP.** Given a set $P$ of $n$ points, find the minimum-weight cycle which visits all $n$ points in $P$.
+
+- **Factor-2 Approx.** *If you remove one edge from a TSP tour, you get a spanning tree.* We say the **twice-around tour** walks around the MST of the graph. Shortcut by skipping repeated vertices. **Proof.** Walking around the tree is at most $2\times$ the total MST weight. MST total weight $\leq$ optimal TSP total weight. Bounding between $1$ and $2$ times means $\leq 2\times$.
+- **Christofides ($1.5\times$).** *Handshake Lemma* states every graph has even number of odd-degree nodes. We match these nodes together such that we can cut out parts of our MST walk. *Minimum-weight matching* can be found in poly time, and we use this on our MST for odd-degree vertices.
+
