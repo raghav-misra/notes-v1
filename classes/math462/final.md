@@ -105,6 +105,17 @@ where recall that $\phi$ is the initial condition.
 
 ### 3.1—Diffusion on the half-line.
 
+**Heat, homogeneous Dirichlet.** 
+$u_t = k u_{xx} \quad (0 < x < \infty) \quad u(x, 0) = \phi(x), \quad u(0, t) = 0.$
+$$
+u(x, t) = \int_{0}^{\infty} [e^{-\frac{(x - y)^2}{4kt}} - e^{-\frac{(x + y)^2}{4kt}}] dy.
+$$
+**Heat, homogeneous Neumann. **
+$u_t = k u_{xx} \quad (0 < x < \infty) \quad u(x, 0) = \phi(x), \quad u_x(0, t) = 0.$
+$$
+u(x, t) = \int_{0}^{\infty} [e^{-\frac{(x - y)^2}{4kt}} + e^{-\frac{(x + y)^2}{4kt}}] dy.
+$$
+
 ### 3.2—Reflections of waves.
 
 ### 3.x—Inhomogeneous problems.
@@ -277,3 +288,8 @@ $$
 ### 6.2—Rectangles and cubes.
 
 ### 6.3—Poisson's formula.
+
+The Laplacian for polar coordinates is
+$$
+\Delta u = u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta \theta}.
+$$
