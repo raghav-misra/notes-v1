@@ -4,7 +4,16 @@
 
 ### 1.1—What is a PDE?
 
-Skip.
+A PDE is **linear** is it can be written in the form $\mathcal{L}(u) = g$, where $\mathcal{L}$ is a *linear operator* and $g$ is a function of the independent variables *only*.
+
+Two flavors of linearity:
+
+1. $\mathcal{L}(u) = 0$ is a **homogeneous linear PDE**.
+2. $\mathcal{L}(u) = g; g \neq 0$ is an **inhomogeneous linear PDE**.
+
+**Superposition Principle.** For a homogeneous linear PDE $\mathcal{L}(u) = 0$, the sum $u + v$ of two solutions to the PDE, $u$ and $v$, is also a solution to the PDE. 
+
+**Inhomogeneous solution sets.** The *entire solution set* of $\mathcal{L}(u) = g \neq 0$ can be found by adding *one solution* of $\mathcal{L}(u) = g$ with every solution in the set of solutions to $\mathcal{L}(u) = 0$.
 
 ### 1.2—First-order linear PDEs.
 
