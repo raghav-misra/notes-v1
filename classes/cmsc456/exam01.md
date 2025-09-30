@@ -139,4 +139,78 @@ In the context of PRGs, we may want to show that an efficient attack on $G$ can 
 - A pattern for doing this is to consider an output string from $G$. We want to consistently convert this into an output string for $H$ in a way that is consistent with the relationship between the definitions of $G$ and $H$.
 - Then, we pass this input to $H$'s attacker, and decide to return yes or no, depending on its result, due to the relationship between the input strings and $G$ and $H$.
 
+### 3.3-cpa security
+
+**Chosen plaintext attacks** are when the adversary manipulates someone into encrypting a specific plaintext.
+
+**CPA-security** gives the adversary $A$ access to an *encryption oracle* that encrypts any plaintext $A$ wants using an unknown key $k$, giving $A$ the associated ciphertext. If $\texttt{Enc}$ is randomized, then the oracle also yields the randomized result. $A$ can query the oracle however much they like. If the adversary has no advantage when given this oracle, we say that the scheme is **CPA-secure**. That is,
+$$
+P[\texttt{PrivK}^{\texttt{cpa}}_{A,\Pi}] \leq \frac{1}{2} + \texttt{negl}(n).
+$$
+
+### 3.5-constructing cpa secure schemes
+
+$F: \{0,1\}^* \times \{0,1\}^* \rightarrow \{0,1\}^*$ takes in a key $k$ is *efficient* if $F(k, x)$ is computable in polynomial time. $F$ is a **PRF** if for all efficient distinguishers $D$,
+$$
+|P[D^{F_k}(1^n) = 1] - P[D^{f}(1^n) = 1]| \leq \texttt{negl}(n).
+$$
+It is important to note that $D$ is not given the key $k$, as it is not given the seed in the case of a PRG.
+
+The size of $\texttt{Func}_n$ is $2^{n \cdot 2^n}$. The size of $\texttt{Perm}_n$ is $(2^n)!$, which is the set of all bijections in $\texttt{Func}_n$.
+
+### 3.6-modes of operation in practice
+
+A **stream cipher** is a pair of deterministic algorithms $(\texttt{Init}, \texttt{Next})$ where $\texttt{Init}$ takes in a seed $s$ and optional initialization vector $IV$, and outputs some initial state $st$. $\texttt{Next}$ takes in a current state and outputs a bit $y$ and a new state $st'$.
+
+A stream cipher without an IV is just a more flexible PRG. Without an IV, when we call $\texttt{Init}$ with just a seed and call $\texttt{Next}$ to generate any number of pseudorandom bits.
+
+**Synchronized mode.** Stream ciphers used to encrypt two-way online communication.
+
+A **block cipher** is just a (strong) pseudorandom permutation. That is, a block cipher is a keyed function such that for all $k$, $F_k(x)$ is a bijection. $n$ is the key length of $F$ and $l$ is the block length.
+
+**ECB (Electronic Code Book) Mode.** When the ciphertext is obtained by direct application of the block cipher to each plaintext block. Since $F^{-1}$ is computable, decryption is trivial. This is deterministic and therefore NOT CPA-secure.
+
+**CBC (Cipher Block Chaining) Mode.** Sequential on block-after-block, so not parallelizable (possibly less efficient as a result). XOR the current plaintext and previous ciphertext blocks and apply the block cipher to its result. Set $c_0$ to the initialization vector.
+
 ## 7-practical constructions
+
+### 7.1-stream ciphers
+
+**RC4** is an old stream cipher which is not used anymore. It takes no IV, and can take a seed of up to $255$ bytes.
+
+- **Init.** Initialize `S[i] = i` for all `0...a...255`
+
+  Let `j = 0` and for `0...i...255`,
+
+  ​	`j += S[i] + k_i mod 256`
+
+  ​	Swap `S[i]` and `S[j]`
+
+  Reset `i = j = 0`
+
+- **Next.**
+
+  `i += i`, `j += S[i]`
+
+  `t = S[i] + S[j]`, `y = S[t]`
+
+  `output y`
+
+It is hard to prove security, but there are biases in RC4, some values show up more than others, for example. Not recommended.
+
+### 7.2-block ciphers
+
+**Confusion** aims to make the relationship between a key and ciphertext as complex and convoluted as possible. **Diffusion** aims to spread the influence of one plaintext bit across many ciphertext bits. As such, small changes to keys and/or plaintexts should result in significantly different ciphertexts.
+
+**Substitution-permutation network** applies these principles to generate output of a cipher. A round consists of three steps.
+
+1. *Key mixing.* Set $x = x \oplus k$, where $k$ is the round subkey.
+2. *Substitution.* Set $x = S_1(x_1)\|\cdots\|S_8(x_8)$, where $x_i$ is the $i$th byte of $x$.
+3. *Permutation.* Permute the bits of $x$ to obtain the output of the round.
+
+After the last round, key mixing occurs one last time to yield the output of the cipher. The round subkeys are derived from a *master key* using a *key schedule*, which may define something as simple as subsets of the master key.
+
+**Avalanche effect** is the property that a small change to the input should "affect" every bit of the output. Two properties:
+
+1. $S$-boxes are designed such that a single bit of the input to an $S$-box should change at least two bits of the output.
+2. The mixing is designed such that the bits output by any $S$-box affect the input to multiple $S$-boxes of a subsequent round.
