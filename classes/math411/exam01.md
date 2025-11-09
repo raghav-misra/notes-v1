@@ -19,6 +19,11 @@ The distance function is $\text{dist}(\mathbf{u}, \mathbf{v}) = \|\mathbf{u} - \
 
 Two vectors are **orthogonal** if their scalar product is zero.
 
+**Cauchy-Schwarz Inequality** states that
+$$
+|\mathbf{u} \cdot \mathbf{v}| \leq \|\mathbf{u}\|\|\mathbf{v}\|.
+$$
+
 ## 10.2: convergent sequences in $\mathbb{R}^n$
 
 A sequence $\{\mathbf{u}_k\}$ *converges* to $\mathbf{u}$ if for each $\epsilon > 0$, there is an index $K$ such that
@@ -39,7 +44,7 @@ A point $\mathbf{u} \in A$ is called an **interior point of $A$** if there exist
 
 - The set $\text{int} \ A$ is the set of all interior points of $A$.
 
-A set $S$ is **open in $\mathbb{R}^n$** if point in $S$ is an interior point of $S$.
+A set $S$ is **open in $\mathbb{R}^n$** if every point in $S$ is an interior point of $S$.
 
 - That is, $\text{int} \ A = A$.
 
