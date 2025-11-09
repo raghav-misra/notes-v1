@@ -214,3 +214,20 @@ After the last round, key mixing occurs one last time to yield the output of the
 
 1. $S$-boxes are designed such that a single bit of the input to an $S$-box should change at least two bits of the output.
 2. The mixing is designed such that the bits output by any $S$-box affect the input to multiple $S$-boxes of a subsequent round.
+
+**Feistel networks** are another way to make block ciphers. Unlike SPNs, the functions it needs are do not need to be invertible. Every round, the $l$-bit input is divided into two halves, $L$ and $R$ and then
+$$
+L_i = R_{i - 1} \qquad R_i = L_{i - 1} \oplus f_i (R_{i - 1})
+$$
+**DES** is a 16-round Feistel network: key length of 56 bits and block length of 64 bits. The same round function $f$ is used for each of the 16 rounds. It takes in a 48-bit sub key and a 32-bit input (half of the total block length, as expected).
+
+**3DES** solves the brute force vulnerability by running **DES** three times with different keys.
+
+**AES** has much longer key length (128, 192, 256 bits). It is a substitution-permutation network. State is initialized to the 128-bit input viewed as a 4-by-4 byte array.
+
+- **AddRoundKey**. Subkey derived from master key, viewed as a 4-by-4 array of bytes. The state array is updated by XORing it with this subkey.
+- **SubBytes**. Each byte of the state array is replaced by another byte according to a fixed lookup table $S$ (this is an $S$-box or a permutation).
+- **ShiftRows**. The bytes in each row are shuffled. First row untouched. Second row shifted left 1, third row 2, fourth row 3.
+- **MixColumn**. Invertible linear transformation is applied to the four bytes in each column. It has the property that if two inputs differ in $b > 0$ bytes, their outputs differ in at least $5 - b$ bytes.
+
+In the last round, **MixColumns** is replaced with **AddRoundKey**.

@@ -61,6 +61,8 @@ $$
 
 **Energy problems.** The total energy of a wave or diffusion system will be given on the exam. We need to do the differentiation/integration/substitution work to show that the energy is constant or decreases. (Depends on the system and the question.)
 
+- You can use energy to prove uniqueness of solutions by messing with initial conditions. Assume two solutions exist and consider their difference. For example, by showing its decreasing and starts at zero. Then energy is always zero so the functions are always equal.
+
 ### 2.3—The diffusion equation.
 
 **Heat/diffusion equation.** $u_t = ku_{xx}$.
@@ -131,6 +133,11 @@ u(x, t) = \sum_{n=1}^{\infty}
 	\sin \left(\frac{n \pi}{\ell} x \right).
 $$
 
+**Wave, homogeneous Dirichlet.**
+$$
+u(x, t) = \sum_{n=1}^{\infty} [A_n \cos(\frac{n\pi ct}{\ell}) + B_n \sin(\frac{n \pi ct}{\ell})] \sin (\frac{n \pi}{\ell} x)
+$$
+
 ### 4.2—Solving Neumann condition.
 
 **Heat equation** with *homogeneous Neumann BCs*.
@@ -138,6 +145,12 @@ $$
 u(x, t) = \frac{1}{2}A_0 + 
 	\sum_{n = 1}^{\infty}A_n e^{-(\frac{n\pi}{\ell})^2 kt}
 		\cos \left( \frac{n \pi}{\ell} x \right).
+$$
+
+**Wave, homogeneous Neumann.**
+$$
+u(x, t) = \frac{1}{2} A_0 + \sum_{n=1}^{\infty}
+	[A_n \cos(\frac{n\pi ct}{\ell}) + B_n \sin(\frac{n \pi ct}{\ell})] + \cos (\frac{n\pi}{\ell}x).
 $$
 
 ### 4.3—Solving Robin condition.
@@ -286,6 +299,35 @@ $$
 **Invariance.** Laplace's equation is invariant under rigid motions. (Transform, rotate.)
 
 ### 6.2—Rectangles and cubes.
+
+In class, we see problems of the following form.
+
+- $\Delta u = 0$.
+- $u(0, y) = 0$ and $u(A, y) = f(y)$.
+- $u(x, 0) = 0$ and $u(x, B) = g(x)$.
+
+We approach such a problem as follows.
+
+- Let $u_1$ and $u_2$ satisfy different pairs of BCs. Repeat the below process for both.
+  - Note $u = u_1 + u_2$.
+
+- One of the two axes should have Dirichlet or Neumann BCs, so we can express it as a general Fourier sine/cosine series, something like
+  $$
+  u(x, y) = \sum_{n = 1}^{\infty} A_n(x) \sin(\frac{n \pi y}{\ell}).
+  $$
+
+- Then, find $u_{xx}$ and $u_{yy}$, set equal to $0$ and simplify.
+  $$
+  u_{xx}(x, y) = \sum_{n = 1}^{\infty} A_n''(x) \sin(\frac{n \pi y}{\ell})\\
+  u_{yy}(x, y) = -\sum_{n = 1}^{\infty} (\frac{n}{\ell})^2 A_n(x) \sin(\frac{n \pi y}{\ell})\\
+  \sum_{n = 1}^{\infty} [A_n''(x) - (\frac{n}{\ell})^2 A_n(x)] \sin(\frac{n \pi y}{\ell}) = 0.
+  $$
+
+- Now we solve our ODE for $A$: $A''_n - (\frac{n}{\ell})^2 A_n = 0$ using the boundary conditions and substitute back into the expression for $u$.
+
+  - $u(0, y) \Rightarrow A(0)$ and $u(\ell, y) \Rightarrow A(\ell)$.
+
+- When solved for both $u_1$ and $u_2$, add the expressions to get $u$.
 
 ### 6.3—Poisson's formula.
 
